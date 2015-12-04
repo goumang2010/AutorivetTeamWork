@@ -1,0 +1,451 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3B0FF9B9-3030-4344-B214-50A2F1F6544A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AUTORIVET_KAOHE</RootNamespace>
+    <AssemblyName>AUTORIVET_KAOHE</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>\\192.168.3.32\softwareTools\Autorivet_team_manage\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>AutorivetTeamWork</ProductName>
+    <PublisherName>SACI</PublisherName>
+    <ApplicationRevision>22</ApplicationRevision>
+    <ApplicationVersion>9.1.1.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <BootstrapperComponentsLocation>Relative</BootstrapperComponentsLocation>
+    <BootstrapperComponentsUrl>\\192.168.3.32\softwareTools\dotnetfx</BootstrapperComponentsUrl>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>7F442FEFFEF9E9D2E06920E0E1DFBD24686FB060</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>AUTORIVET_KAOHE_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>bitbug_favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>AUTORIVET_KAOHE.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Interop.MECMOD">
+      <HintPath>..\dll\Interop.MECMOD.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\dll\Microsoft.Office.Interop.Word.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.7\lib\net40\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\dll\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Management">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="WinForms\AOEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\AOEditor.Designer.cs">
+      <DependentUpon>AOEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\CATIA_model.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\CATIA_model.Designer.cs">
+      <DependentUpon>CATIA_model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\CouponTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\CouponTest.Designer.cs">
+      <DependentUpon>CouponTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\DBManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\DBManager.Designer.cs">
+      <DependentUpon>DBManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\Feedback.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Feedback.Designer.cs">
+      <DependentUpon>Feedback.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\TaskManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\TaskManager.Designer.cs">
+      <DependentUpon>TaskManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\MainTeamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\MainTeamForm.Designer.cs">
+      <DependentUpon>MainTeamForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\TaskInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\TaskInfo.Designer.cs">
+      <DependentUpon>TaskInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\TrackForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\TrackForm.Designer.cs">
+      <DependentUpon>TrackForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormInterface.cs" />
+    <Compile Include="FormMethod.cs" />
+    <Compile Include="WinForms\SocketClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\SocketClient.Designer.cs">
+      <DependentUpon>SocketClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\SocketServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\SocketServer.Designer.cs">
+      <DependentUpon>SocketServer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\Troubles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Troubles.designer.cs">
+      <DependentUpon>Troubles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\Tools.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Tools.designer.cs">
+      <DependentUpon>Tools.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\Material.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Material.designer.cs">
+      <DependentUpon>Material.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\OtherPaperwork.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\OtherPaperwork.designer.cs">
+      <DependentUpon>OtherPaperwork.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\PaperWork.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\PaperWork.designer.cs">
+      <DependentUpon>PaperWork.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\Part_list.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Part_list.Designer.cs">
+      <DependentUpon>Part_list.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\planMaker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\planMaker.Designer.cs">
+      <DependentUpon>planMaker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\ProductAll.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\ProductAll.Designer.cs">
+      <DependentUpon>ProductAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\Production.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Production.Designer.cs">
+      <DependentUpon>Production.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WinForms\RandomGEN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\RandomGEN.Designer.cs">
+      <DependentUpon>RandomGEN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\RNC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\RNC.Designer.cs">
+      <DependentUpon>RNC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SharedCredit.cs" />
+    <Compile Include="WinForms\TaskModel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\TaskModel.Designer.cs">
+      <DependentUpon>TaskModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="WinForms\AOEditor.resx">
+      <DependentUpon>AOEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\CATIA_model.resx">
+      <DependentUpon>CATIA_model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\CouponTest.resx">
+      <DependentUpon>CouponTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\DBManager.resx">
+      <DependentUpon>DBManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Feedback.resx">
+      <DependentUpon>Feedback.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\TaskManager.resx">
+      <DependentUpon>TaskManager.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\MainTeamForm.resx">
+      <DependentUpon>MainTeamForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\TaskInfo.resx">
+      <DependentUpon>TaskInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\TrackForm.resx">
+      <DependentUpon>TrackForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\SocketClient.resx">
+      <DependentUpon>SocketClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\SocketServer.resx">
+      <DependentUpon>SocketServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Troubles.resx">
+      <DependentUpon>Troubles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Tools.resx">
+      <DependentUpon>Tools.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Material.resx">
+      <DependentUpon>Material.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\OtherPaperwork.resx">
+      <DependentUpon>OtherPaperwork.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\PaperWork.resx">
+      <DependentUpon>PaperWork.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Part_list.resx">
+      <DependentUpon>Part_list.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\planMaker.resx">
+      <DependentUpon>planMaker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\ProductAll.resx">
+      <DependentUpon>ProductAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Production.resx">
+      <DependentUpon>Production.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="WinForms\RandomGEN.resx">
+      <DependentUpon>RandomGEN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\RNC.resx">
+      <DependentUpon>RNC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\TaskModel.resx">
+      <DependentUpon>TaskModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="AUTORIVET_KAOHE_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bitbug_favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FileManagerNew\FileManagerNew\FileManagerNew.csproj">
+      <Project>{ceb6bed3-31cd-4315-9f2d-f5ebf1cdf89a}</Project>
+      <Name>FileManagerNew</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\mysqlsolution\mysqlsolution\MySqlSolution.csproj">
+      <Project>{41f56599-8d65-48b1-ac56-99e8d146bc2d}</Project>
+      <Name>MySqlSolution</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NC_TOOL\NC_TOOL\NC_TOOL.csproj">
+      <Project>{f2078848-bf40-4084-9559-492a72d17948}</Project>
+      <Name>NC_TOOL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OFFICE_Method\OFFICE_Method\OFFICE_Method.vbproj">
+      <Project>{78d7e043-4963-44c0-9631-9e9549eafe91}</Project>
+      <Name>OFFICE_Method</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TVA_tools\FASTTIP_CATIA_METHOD\CATIA_method.vbproj">
+      <Project>{a761ef80-ff77-41ef-85e0-a8ffbac96ae2}</Project>
+      <Name>CATIA_method</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
