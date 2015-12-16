@@ -472,7 +472,7 @@ namespace AUTORIVET_KAOHE
 
             //直接获取目录
 
-            string path = Properties.Settings.Default.filepath + bb.First() + "\\" + temprow["产品架次"].ToString() + "\\RNC\\" + temprow["外部拒收号"].ToString();
+            string path = Program.InfoPath + bb.First() + "\\" + temprow["产品架次"].ToString() + "\\RNC\\" + temprow["外部拒收号"].ToString();
 
 
             localMethod.creatDir(path);
@@ -537,70 +537,30 @@ namespace AUTORIVET_KAOHE
 
                  tmp.Add("中文名称", prodname+"壁板");
                  tmp.Add("名称", prodname );
-
-
-
                 //架次
                 string jiaci = temprow[7].ToString();
                 tmp.Add("架次", jiaci);
-
-
-
                  //填充标题
                  string neibujushou=temprow[0].ToString();
                      //现改为填充外部拒收号
                  tmp.Add("内部拒收号", neibujushou);
-                   //  tmp.Add("标题", "配合文件RNC：" + neibujushou + "进行排故\rACCORDING TO RNC: " + neibujushou + " REPAIR\r\a");
-
-
                  string folderpath = path;
-        
-
-
                  tmp.Add("保存地址",folderpath+"\\"+temprow[0].ToString()+"_AAO.doc");
                  tmp.Add("类型", "AO");
 
                      AO f=new AO();
                      f.rncaao=tmp;
-                     f.tianchong();
                      f.Show();
-
-
-
-
-
-
-//现已改为AAO
+            //现已改为AAO
 
                     paperWork f2 =new paperWork();
                     f2.Show();
                     f2.filter_filename = temprow["外部拒收号"].ToString();
                     f2.rf_filter();
-
-
-
-
-
-
-
-
-
-
-
                 break;
                 case 2:
                     //获取目录名称
 
-
-                     //string path = DbHelperSQL.getlist("select AAO地址 from rnc总表 where 流水号="+temprow[10].ToString()).First();
-                //if (!System.IO.Directory.Exists(path))
-                //{
-                //    creatrncfolder();
-                   
-                //}
-
-                //shareAcess aa = new shareAcess();
-                //aa.openfolder(path);
 
                 try
                 {

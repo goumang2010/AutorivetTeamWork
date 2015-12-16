@@ -4,15 +4,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-
+using IronPython;
+using IronPython.Hosting;
+using Microsoft.Scripting.Hosting;
 
 namespace AUTORIVET_KAOHE
 {
     static class Program
     {
         public static bool ManagerActived = false;
-        public static string userid;
+        private static string userid;
+       // private static string infopath;
         public static System.Data.DataTable prodTable;
         public static frmClient fff;
         public static Dictionary<string, string> procDic = new Dictionary<string, string>();
@@ -45,7 +47,29 @@ namespace AUTORIVET_KAOHE
             }
         }
 
+        public static string InfoPath
+        {
+          
+            get {
 
+                ScriptEngine engine = Python.CreateEngine();
+                ScriptScope scope = engine.CreateScope();
+                engine.ExecuteFile(@"\\192.168.3.32\softwareTools\Autorivet_team_manage\settings\configuration.py", scope);
+                return scope.GetVariable("InfoPath");
+               
+
+            }
+            set
+            {
+
+                ScriptEngine engine = Python.CreateEngine();
+                ScriptScope scope = engine.CreateScope();
+                engine.ExecuteFile(@"\\192.168.3.32\softwareTools\Autorivet_team_manage\settings\configuration.py", scope);
+                scope.SetVariable("InfoPath",value);
+
+
+            }
+        }
 
         /// <summary>
         /// 应用程序的主入口点。
@@ -56,8 +80,11 @@ namespace AUTORIVET_KAOHE
            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-       
-         Application.Run(new MainTeamForm());
+            //向客户机添加凭据
+            FormMethod.creatCredential();
+            Program.prodTable = AutorivetDB.fullname_table("图号,名称,站位号,程序编号");
+            Program.userID = FormMethod.GetMachineName();
+            Application.Run(new MainTeamForm());
            //Application.Run(new AO());
         }
 

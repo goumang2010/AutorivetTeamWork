@@ -117,14 +117,14 @@ namespace AUTORIVET_KAOHE
         {
             var test = new List<FileInfo>();
            
-            test.WalkTree(Properties.Settings.Default.filepath);
+            test.WalkTree(Program.InfoPath);
 
-            //fileInfo dd = fileOP.WalkTree(Properties.Settings.Default.filepath);
+            //fileInfo dd = fileOP.WalkTree(Program.InfoPath);
            string backupfolder=@"\\192.168.3.32\Autorivet\Prepare\BACKUP\BACKUP_ALL\";
                localMethod.creatDir(backupfolder);
 
             test.Where(x => x.Name.Contains("backup")).moveto(backupfolder);
-            //dd.namefilter("backup").moveto(Properties.Settings.Default.filepath,backupfolder);
+            //dd.namefilter("backup").moveto(Program.InfoPath,backupfolder);
 
                MessageBox.Show("成功");
                
@@ -281,30 +281,7 @@ namespace AUTORIVET_KAOHE
 
         //备份文件
 
-        public static void backupfile(string filepath)
-        {
-            string filename = filepath.Split('\\').Last();
-            string folderpath = filepath.Replace(filename, "");
-            string backupfolder = folderpath + @"backup\";
-            localMethod.creatDir(backupfolder);
 
-            if(File.Exists(filepath))
-            {
-                File.Copy(filepath, backupfolder + filename.Replace(".", "_backup_" + DateTime.Now.ToString("yyyy-MM-dd_hh-mm") + "."), true);
-            }
-            
-
-
-        }
-        public static void backupfolder(string newfoldername)
-        {
-            //Remove all other files 
-            List<FileInfo> oldfiles = new List<FileInfo>();
-            oldfiles.WalkTree(newfoldername, false);
-            string backupfolder = newfoldername + "backup_" + DateTime.Now.ToString("yyyy-MM-dd_hh-mm");
-            localMethod.creatDir(backupfolder);
-            oldfiles.moveto(backupfolder);
-        }
 
 
 
@@ -321,7 +298,7 @@ namespace AUTORIVET_KAOHE
 
 
 
-            string basefolder = Properties.Settings.Default.filepath + prodmark;
+            string basefolder = Program.InfoPath + prodmark;
             switch (type)
             {
                 case "COS":
@@ -409,7 +386,7 @@ namespace AUTORIVET_KAOHE
         public static void open_process(object filepath)
         {
             //备份文件
-           backupfile((string)filepath);
+           localMethod.backupfile((string)filepath);
             //使用Fastip 打开
 
      
@@ -422,7 +399,7 @@ namespace AUTORIVET_KAOHE
         public static void open_file_local(object filepath)
         {
             //备份文件
-            backupfile((string)filepath);
+            localMethod.backupfile((string)filepath);
             System.Diagnostics.Process aa = new System.Diagnostics.Process();
             aa.StartInfo=new System.Diagnostics.ProcessStartInfo((string)filepath);
             aa.Start();
@@ -606,7 +583,12 @@ namespace AUTORIVET_KAOHE
                             break;
 
                         default:
-                            inputdata = false;
+                            productname = folderprop[1].Split('_')[0];
+                            effname = "--";
+                            relatedfile = "";
+                            filetitle = productname +"_"+ biaoshi;
+                           // filenum = myWordfile.Tables[1].Cell(1, 5).Range.Text.Replace("\a", "");
+                            filetype = "OTHER";
                             break;
 
                     }
@@ -741,7 +723,7 @@ namespace AUTORIVET_KAOHE
 
   public static Document creatAOI(Dictionary<string, string> rncaao,bool overcover=false,bool closeword=true)
         {
-            backupfile(rncaao["AOI保存地址"]);
+            localMethod.backupfile(rncaao["AOI保存地址"]);
             if (!rncaao.Keys.Contains("图纸名称"))
             {
                 
@@ -770,7 +752,7 @@ namespace AUTORIVET_KAOHE
             {
                 try
                 {
-                    File.Copy(Properties.Settings.Default.filepath + "SAMPLE\\AOI\\AOI.docx", rncaao["AOI保存地址"], true);
+                    File.Copy(Program.InfoPath + "SAMPLE\\AOI\\AOI.docx", rncaao["AOI保存地址"], true);
 
                 }
                 catch
@@ -1140,7 +1122,7 @@ namespace AUTORIVET_KAOHE
   public static void creatPACR(Dictionary<string, string> rncaao, bool overcover = false,bool closeword=true)
   {
 
-            backupfile(rncaao["PACR保存地址"]);
+            localMethod.backupfile(rncaao["PACR保存地址"]);
       if (!rncaao.Keys.Contains("图纸名称"))
       {
           rncaao.Add("图纸名称", AutorivetDB.queryno(rncaao["图号"], "图纸名称"));
@@ -1162,7 +1144,7 @@ namespace AUTORIVET_KAOHE
                 try
                 {
                     
-                    File.Copy(Properties.Settings.Default.filepath + "SAMPLE\\AOI\\PACR.doc", rncaao["PACR保存地址"], true);
+                    File.Copy(Program.InfoPath + "SAMPLE\\AOI\\PACR.doc", rncaao["PACR保存地址"], true);
                 }
                 catch
                 {
@@ -1364,7 +1346,7 @@ namespace AUTORIVET_KAOHE
         public static void creatCOPYSH(Dictionary<string, string> rncaao, bool overcover = false, bool closeword = true)
         {
 
-            backupfile(rncaao["复制单保存地址"]);
+            localMethod.backupfile(rncaao["复制单保存地址"]);
             if (!rncaao.Keys.Contains("图纸名称"))
             {
                 rncaao.Add("图纸名称", AutorivetDB.queryno(rncaao["图号"], "图纸名称"));
@@ -1386,7 +1368,7 @@ namespace AUTORIVET_KAOHE
                 try
                 {
 
-                    File.Copy(Properties.Settings.Default.filepath + "SAMPLE\\RULE\\REPROD_SH.doc", rncaao["复制单保存地址"], true);
+                    File.Copy(Program.InfoPath + "SAMPLE\\RULE\\REPROD_SH.doc", rncaao["复制单保存地址"], true);
                 }
                 catch
                 {
@@ -1432,7 +1414,7 @@ namespace AUTORIVET_KAOHE
         public static void creatVERI(Dictionary<string, string> rncaao, bool overcover = false, bool closeword = true)
         {
 
-            backupfile(rncaao["鉴定表保存地址"]);
+            localMethod.backupfile(rncaao["鉴定表保存地址"]);
             if (!rncaao.Keys.Contains("图纸名称"))
             {
                 rncaao.Add("图纸名称", AutorivetDB.queryno(rncaao["图号"], "图纸名称"));
@@ -1454,7 +1436,7 @@ namespace AUTORIVET_KAOHE
                 try
                 {
 
-                    File.Copy(Properties.Settings.Default.filepath + "SAMPLE\\RULE\\VERI_SH.doc", rncaao["鉴定表保存地址"], true);
+                    File.Copy(Program.InfoPath + "SAMPLE\\RULE\\VERI_SH.doc", rncaao["鉴定表保存地址"], true);
                 }
                 catch
                 {

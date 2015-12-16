@@ -125,13 +125,13 @@
             this.comboBox52 = new System.Windows.Forms.ComboBox();
             this.comboBox53 = new System.Windows.Forms.ComboBox();
             this.comboBox54 = new System.Windows.Forms.ComboBox();
-            this.productList1 = new mysqlsolution.productList();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label37 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button3 = new System.Windows.Forms.Button();
+            this.productList1 = new mysqlsolution.productList();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -304,9 +304,8 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(5, 85);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(89, 12);
+            this.label10.Size = new System.Drawing.Size(0, 12);
             this.label10.TabIndex = 27;
-            this.label10.Text = "SKIN-70/FRM-50";
             this.label10.Click += new System.EventHandler(this.coupon_tweak);
             // 
             // label11
@@ -318,6 +317,7 @@
             this.label11.TabIndex = 28;
             this.label11.Text = "SKIN-70/FRM-60";
             this.label11.Click += new System.EventHandler(this.coupon_tweak);
+            this.label11.DoubleClick += new System.EventHandler(this.label11_DoubleClick);
             // 
             // label12
             // 
@@ -2090,14 +2090,6 @@
             this.comboBox54.Size = new System.Drawing.Size(121, 20);
             this.comboBox54.TabIndex = 100;
             // 
-            // productList1
-            // 
-            this.productList1.Location = new System.Drawing.Point(7, 328);
-            this.productList1.Name = "productList1";
-            this.productList1.Size = new System.Drawing.Size(187, 272);
-            this.productList1.TabIndex = 17;
-            this.productList1.Load += new System.EventHandler(this.productList1_Load);
-            // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
@@ -2160,6 +2152,14 @@
             this.button3.Text = "excel";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // productList1
+            // 
+            this.productList1.Location = new System.Drawing.Point(7, 328);
+            this.productList1.Name = "productList1";
+            this.productList1.Size = new System.Drawing.Size(187, 272);
+            this.productList1.TabIndex = 17;
+            this.productList1.Load += new System.EventHandler(this.productList1_Load);
             // 
             // couponTest
             // 

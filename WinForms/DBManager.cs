@@ -177,5 +177,16 @@ namespace AUTORIVET_KAOHE
         {
             AutorivetDB.updatePeopleTable();
         }
+
+        private void createMBOMTableToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AutorivetDB.EBOM_table();
+
+        }
+
+        private void eBOMTableToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

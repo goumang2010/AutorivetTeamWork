@@ -14,17 +14,25 @@ using NC_TOOL;
 using OFFICE_Method;
 using System.Reflection;
 
+
 namespace AUTORIVET_KAOHE
 {
     public partial class couponTest : Form
     {
         Dictionary<string, string> fstenerT = DbHelperSQL.getDic("select Fasteners,Tcode from 紧固件列表");
         List<Control[]> controlList= new List<Control[]>();
-        DataTable coupondt = new DataTable();
+      
+        private DataTable coupondt;
+
         public couponTest()
         {
             InitializeComponent();
+            //Fectch the coupon configuration 
+
+            
         }
+
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -32,7 +40,7 @@ namespace AUTORIVET_KAOHE
             //pointCoord test = new pointCoord("X;500");
           
 
-            string outputfolder = Properties.Settings.Default.filepath + productList1.listBox1.SelectedItem.ToString() + "\\NC\\COUPON\\";
+            string outputfolder = Program.InfoPath + productList1.listBox1.SelectedItem.ToString() + "\\NC\\COUPON\\";
 
             localMethod.creatDir(outputfolder);
 
@@ -73,7 +81,7 @@ namespace AUTORIVET_KAOHE
 
                     //选择“对号” 的tag
                     string mark = cc[1].Tag.ToString();
-                    string folderpath = Properties.Settings.Default.filepath + "SAMPLE\\COUPON\\TAB\\" + mark + "\\";
+                    string folderpath = Program.InfoPath + "SAMPLE\\COUPON\\TAB\\" + mark + "\\";
             pointCoordList ptls = new pointCoordList();
         pointCoordList[] couponModel=new pointCoordList[3] {
             new pointCoordList(folderpath + mark+"_upper.tab"),
@@ -107,7 +115,7 @@ namespace AUTORIVET_KAOHE
 
                         }
                         //Read the enter/out NC codes
-                        string progfolder = Properties.Settings.Default.filepath + @"SAMPLE\COUPON\TAB\ENTER\";
+                        string progfolder = Program.InfoPath + @"SAMPLE\COUPON\TAB\ENTER\";
                         Func<string, NCcodeList> openNCfile = delegate (string name)
                         {
                             //Type dd = typeof(NCcodeList);
@@ -115,8 +123,8 @@ namespace AUTORIVET_KAOHE
                             NinjectDependencyResolver dd = new NinjectDependencyResolver();
                             NCcodeList obj = new NCcodeList((IDBInfo)dd.GetService(typeof(IDBInfo)));
                             obj.ImportFromFile(progfolder + name);
-                            obj.RemoveRange(0, 2);
-                            obj.RemoveRange(obj.Count - 2, 2);
+                            obj.NCList.RemoveRange(0, 2);
+                            obj.NCList.RemoveRange(obj.NCList.Count - 2, 2);
                             return obj;
                         };
                         string beginProg;
@@ -130,24 +138,24 @@ namespace AUTORIVET_KAOHE
                         if (mark.Contains("left"))
                         {
                             beginProg= "M98 P3601";
-                            beginNC = openNCfile("BEGIN_LEFT");
+                            beginNC = openNCfile("BEGIN_LEFT").NCList;
                             enterProg = "M98 P3602";
-                            enterNC= openNCfile("ENTER_LEFT");
+                            enterNC= openNCfile("ENTER_LEFT").NCList;
                             outProg = "M98 P3603";
-                            outNC = openNCfile("OUT_LEFT");
+                            outNC = openNCfile("OUT_LEFT").NCList;
                             endProg = "M98 P3604";
-                            endNC= openNCfile("END_LEFT");
+                            endNC= openNCfile("END_LEFT").NCList;
                         }
                         else
                         {
                             beginProg = "M98 P3701";
-                            beginNC = openNCfile("BEGIN_RIGHT");
+                            beginNC = openNCfile("BEGIN_RIGHT").NCList;
                             enterProg = "M98 P3702";
-                            enterNC = openNCfile("ENTER_RIGHT");
+                            enterNC = openNCfile("ENTER_RIGHT").NCList;
                             outProg = "M98 P3703";
-                            outNC = openNCfile("OUT_RIGHT");
+                            outNC = openNCfile("OUT_RIGHT").NCList;
                             endProg = "M98 P3704";
-                            endNC = openNCfile("END_RIGHT");
+                            endNC = openNCfile("END_RIGHT").NCList;
                         }
 
                        
@@ -345,7 +353,7 @@ namespace AUTORIVET_KAOHE
             }
             //复制进出程序至输出目录
             List<FileInfo> en = new List<FileInfo>();
-            en.WalkTree(Properties.Settings.Default.filepath + @"SAMPLE\COUPON\TAB\ENTER\",false);
+            en.WalkTree(Program.InfoPath + @"SAMPLE\COUPON\TAB\ENTER\",false);
             en.copyto(outputfolder);
 
 
@@ -354,20 +362,26 @@ namespace AUTORIVET_KAOHE
 
         private void couponTest_Load(object sender, EventArgs e)
         {
+
             productList1.listBox1.Click += ListBox1_Click;
 
 
-
+            dynamic CPNameDic;
+            CPNameDic = localMethod.GetConfigValue("GetCouponName", "CouponCfg.py");
 
 
 
 
             //生成对应的字典
-            for(int i=10;i<=18;i++)
+            for (int i=10;i<=18;i++)
             {
                 string controlname = "label" + i.ToString();
-                controlList.Add(new Control[5] { this.Controls["label" + i.ToString()], this.Controls["label" + (i-9).ToString()], this.Controls["comboBox" + (i - 9).ToString()], this.Controls["comboBox" + (28-i).ToString()], this.Controls["comboBox" + (55 - i).ToString()] });
-                controlList.Add(new Control[5] { this.Controls["label" + (37-i).ToString()], this.Controls["label" + (46-i).ToString()], this.Controls["comboBox" + (46-i).ToString()], this.Controls["comboBox" + (37 - i).ToString()], this.Controls["comboBox" + (64 - i).ToString()] });
+                var leftLabel = this.Controls["label" + i.ToString()];
+                leftLabel.Text = CPNameDic("l" + (i - 9).ToString());
+                controlList.Add(new Control[5] { leftLabel, this.Controls["label" + (i-9).ToString()], this.Controls["comboBox" + (i - 9).ToString()], this.Controls["comboBox" + (28-i).ToString()], this.Controls["comboBox" + (55 - i).ToString()] });
+                var rightLabel = this.Controls["label" + (37 - i).ToString()];
+                rightLabel.Text = CPNameDic("r" + (i - 9).ToString());
+                controlList.Add(new Control[5] { rightLabel, this.Controls["label" + (46-i).ToString()], this.Controls["comboBox" + (46-i).ToString()], this.Controls["comboBox" + (37 - i).ToString()], this.Controls["comboBox" + (64 - i).ToString()] });
 
 
 
@@ -526,9 +540,9 @@ namespace AUTORIVET_KAOHE
 
             if (targetDri.Count() > 0)
             {
-                string outputfolder = Properties.Settings.Default.filepath + productList1.listBox1.SelectedItem.ToString() + "\\NC\\COUPON\\";
+                string outputfolder = Program.InfoPath + productList1.listBox1.SelectedItem.ToString() + "\\NC\\COUPON\\";
                 string newfoldername = targetDri.First().RootDirectory.FullName;
-                FormMethod.backupfolder(newfoldername);
+                localMethod.backupfolder(newfoldername);
                 List<FileInfo> files = new List<FileInfo>();
                 files.WalkTree(outputfolder, false);
                 files.copyto(newfoldername);
@@ -576,6 +590,20 @@ namespace AUTORIVET_KAOHE
         {
             excelMethod.SaveDataTableToExcel((DataTable)dataGridView1.DataSource);
            
+        }
+
+        private void label11_DoubleClick(object sender, EventArgs e)
+        {
+            var cl = (Label)sender;
+            string oldstr = cl.Text;
+           string newStr= localMethod.VBInputBox("不需要试片输入NONE", "输入新的编号", oldstr);
+            if(newStr!="")
+            {
+                localMethod.UpdateConfigValue(oldstr, newStr, "CouponCfg.py");
+            }
+            
+
+
         }
     }
 }

@@ -290,7 +290,7 @@ namespace AUTORIVET_KAOHE
             {
 
        
-            //fileInfo allfiles = fileOP.WalkTree(Properties.Settings.Default.filepath.Remove(Properties.Settings.Default.filepath.Count()-1));
+            //fileInfo allfiles = fileOP.WalkTree(Program.InfoPath.Remove(Program.InfoPath.Count()-1));
             fileInfo allfiles = fileOP.WalkTree(FormMethod.get_storefolder(listBox2.SelectedItem.ToString()));
             FormMethod.scanfiledoc(allfiles.pathfilter("", "old").pathfilter("", "backup").extfilter("doc").namefilter("AAO", "~$"), checkBox2.Checked);
            // scanfilepdf(allfiles.pathfilter("","old").extfilter("pdf").namefilter("V0"));
@@ -735,7 +735,7 @@ namespace AUTORIVET_KAOHE
                         strobj[1] = textBox3.Text;
                         strobj[2] = textBox4.Text;
 
-                        FormMethod.backupfile(temprow["地址"].ToString());
+                        localMethod.backupfile(temprow["地址"].ToString());
                         //Thread t1 = new Thread(new ParameterizedThreadStart(replacethread));
                         //t1.Start(strobj);
 
@@ -826,7 +826,7 @@ namespace AUTORIVET_KAOHE
              
                 if (File.Exists(pp))
                 {
-                    FormMethod.backupfile(pp);
+                    localMethod.backupfile(pp);
                     File.Delete(pp);
 
 
@@ -850,7 +850,7 @@ namespace AUTORIVET_KAOHE
                       where Convert.ToBoolean(dd.Cells["choose"].Value) == true 
                       select dd.Cells["地址"].Value.ToString();
 
-            string outputfolder = Properties.Settings.Default.filepath.Replace("prepare","output") + "files\\";
+            string outputfolder = Program.InfoPath.Replace("prepare","output") + "files\\";
             foreach (string pp in kkk)
             {
                 File.Copy(pp, outputfolder + pp.Split('\\').Last(), true);

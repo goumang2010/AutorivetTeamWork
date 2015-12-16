@@ -11,9 +11,9 @@ using System.Net;  // IP，IPAddress, IPEndPoint，端口等；
 using System.Threading;
 using System.IO;
 using mysqlsolution;
-using OFFICE_Method;
 
-namespace AUTORIVET_KAOHE
+
+namespace AutorivetService
 {
     public partial class frm_server : Form
     {

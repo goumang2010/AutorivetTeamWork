@@ -1,4 +1,4 @@
-﻿namespace AUTORIVET_KAOHE
+﻿namespace AutorivetService
 {
     partial class frm_server
     {

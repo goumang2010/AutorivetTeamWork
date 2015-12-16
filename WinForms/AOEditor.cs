@@ -20,31 +20,35 @@ namespace AUTORIVET_KAOHE
         private Microsoft.Office.Interop.Word.Application wordApp;
         private Microsoft.Office.Interop.Word.Document myAO;
         private object defaultV = System.Reflection.Missing.Value;
- //    private object documentType;
+        //    private object documentType;
+        private Dictionary<string, string> infoDic=new Dictionary<string, string>();
+        public Dictionary<string,string> rncaao
 
-        public Dictionary<string,string> rncaao=new Dictionary<string,string> ();
+        {
+            get
+            {
+              
+                return infoDic;
+            }
+
+            set
+            {
+                infoDic = value;
+                listBox1.SelectedItem = infoDic["名称"] + "_" + infoDic["架次"];
+
+
+
+            }
+        }
+
+
+
+
+
         private Dictionary<string, string> fasteners = new Dictionary<string, string>();
 
        
-        public void tianchong()
-        {
-          //  textBox1.Text = rncaao["编号"];
-
-          
-           
-         //   textBox2.Text = "配合文件RNC：" + neibujushou + "进行排故\rACCORDING TO RNC: " + neibujushou + " REPAIR\r\a";
-                
-          //  textBox4.Text = rncaao["名称"];
-           // textBox5.Text = rncaao["版次"];
-           // textBox5.Text = rncaao["架次"];
-            /*
-            if (File.Exists(rncaao["保存地址"]))
-            {
-                myAO = wordApp.Documents.Open(rncaao["保存地址"]);
-            }
-             * */
-        }
-
+    
         private void AO_Load(object sender, EventArgs e)
         {
           // 
@@ -77,7 +81,9 @@ namespace AUTORIVET_KAOHE
 
             col_btn_insert2.Width = 55;
             dataGridView1.Columns.Add(col_btn_insert2);
-      
+            listBox1.DataSource = DbHelperSQL.getlist("select concat(产品名称,'_',产品架次) from 产品流水表");
+            listBox1.SelectedIndex = listBox1.Items.Count - 1;
+
         }
 
         private Document creatAAO()
@@ -98,6 +104,10 @@ namespace AUTORIVET_KAOHE
                 else
                 {
                     rncaao.Add("编号","C1-"+ prodinfo[5]+"--AAO");
+
+                    rncaao["保存地址"] = Program.InfoPath + rncaao["名称"]+"_"+ rncaao["图号"]+"\\"+ rncaao["架次"]+@"\" + rncaao["图号"]+"_CHANGEAAO.doc";
+
+
                 }
                
             }
@@ -123,26 +133,8 @@ namespace AUTORIVET_KAOHE
                     myAO = wordApp.Documents.Open(@"\\192.168.3.32\Autorivet\Prepare\INFO\SAMPLE\AAO.doc");
 
 
-                  //  }
-                    
-              //      myAO.SaveAs2(rncaao["保存地址"]);
-              //  }
-            
-         
-          
-          
-
-
-
-
             //下一级装配件号
             myAO.Tables[1].Cell(2, 2).Range.Text = rncaao["下级装配号"];
-
-
-            //编号
-         //  if (myAO.Tables[1].Cell(2, 6).Range.Text!="")
-         //   {
-
             string baseno = rncaao["编号"];
 
         int aaocount=    DbHelperSQL.getlist("select 文件编号 from Paperwork where 文件编号 like '" + baseno + "%'").Count();
@@ -158,7 +150,7 @@ namespace AUTORIVET_KAOHE
 
 
             //标题
-            if (rncaao["类型"] != "补铆")
+            if (comboBox1.Text != "更改")
             {
                 string neibujushou = rncaao["内部拒收号"];
                 myAO.Tables[1].Cell(2, 4).Range.Text = "配合文件RNC：" + neibujushou + "进行排故\rACCORDING TO RNC: " + neibujushou + " REPAIR";
@@ -178,7 +170,7 @@ namespace AUTORIVET_KAOHE
             myAO.Tables[1].Cell(7, 1).Range.Text = "1";
             myAO.Tables[1].Cell(7, 2).Range.Text = rncaao["图号"] + "P2";
             myAO.Tables[1].Cell(7, 4).Range.Text = "1";
-            myAO.Tables[1].Cell(7, 6).Range.Text = rncaao["中文名称"] + rncaao["图纸名称"];
+            myAO.Tables[1].Cell(7, 6).Range.Text = rncaao["名称"] + rncaao["图纸名称"];
            // myAO.Tables[1].Cell(7, 10).Range.Text = rncaao["架次"];
             // myAO.Tables[1].Cell(7, 1).Range.Text = dataGridView1.Rows[0].
 
@@ -633,7 +625,7 @@ namespace AUTORIVET_KAOHE
         }
         private void button2_Click(object sender, EventArgs e)
         {
-
+           
             creatAAO();
         }
 
@@ -735,8 +727,17 @@ namespace AUTORIVET_KAOHE
             MessageBox.Show("执行成功，杀死" + k.ToString() + "个word进程");
         }
 
-  
 
 
+
+        private void listBox1_Click(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex != -1)
+            {
+                var tt = listBox1.SelectedItem.ToString().Split('_');
+                infoDic["名称"] = tt[0];
+                infoDic["架次"] = tt[1];
+            }
+        }
     }
 }

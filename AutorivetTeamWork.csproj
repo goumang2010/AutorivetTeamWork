@@ -25,8 +25,8 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ProductName>AutorivetTeamWork</ProductName>
     <PublisherName>SACI</PublisherName>
-    <ApplicationRevision>22</ApplicationRevision>
-    <ApplicationVersion>9.1.1.%2a</ApplicationVersion>
+    <ApplicationRevision>8</ApplicationRevision>
+    <ApplicationVersion>10.1.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -103,14 +103,16 @@
       <HintPath>..\dll\Interop.MECMOD.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="IronPython, Version=2.7.5.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>..\..\dll\Microsoft.Office.Interop.Word.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Scripting, Version=1.1.0.20, Culture=neutral, PublicKeyToken=7f709c5b713576e1" />
     <Reference Include="MySql.Data, Version=6.9.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.6.9.7\lib\net40\MySql.Data.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dll\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\dll\Newtonsoft.Json.dll</HintPath>
@@ -368,7 +370,6 @@
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="AUTORIVET_KAOHE_TemporaryKey.pfx" />
-    <None Include="packages.config" />
     <None Include="Properties\app.manifest">
       <SubType>Designer</SubType>
     </None>
@@ -427,17 +428,21 @@
       <Project>{41f56599-8d65-48b1-ac56-99e8d146bc2d}</Project>
       <Name>MySqlSolution</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NC_TOOL\NC_TOOL\NC_TOOL.csproj">
+    <ProjectReference Include="..\NC_TOOLS\NC_TOOL\NCTools.csproj">
       <Project>{f2078848-bf40-4084-9559-492a72d17948}</Project>
-      <Name>NC_TOOL</Name>
+      <Name>NCTools</Name>
     </ProjectReference>
     <ProjectReference Include="..\OFFICE_Method\OFFICE_Method\OFFICE_Method.vbproj">
       <Project>{78d7e043-4963-44c0-9631-9e9549eafe91}</Project>
       <Name>OFFICE_Method</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TVA_tools\FASTTIP_CATIA_METHOD\CATIA_method.vbproj">
+    <ProjectReference Include="..\TVA_tools\FASTTIP_CATIA_METHOD\CatiaFastipMethod.vbproj">
       <Project>{a761ef80-ff77-41ef-85e0-a8ffbac96ae2}</Project>
-      <Name>CATIA_method</Name>
+      <Name>CatiaFastipMethod</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WindowsFormsApplication1\WindowsFormsApplication1\SACISearch.csproj">
+      <Project>{7f06b16e-a6e2-4678-8d5a-d25eac54e362}</Project>
+      <Name>SACISearch</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

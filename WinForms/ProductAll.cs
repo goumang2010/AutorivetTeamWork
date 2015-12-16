@@ -179,7 +179,7 @@ namespace AUTORIVET_KAOHE
 
                string dwgrev = temprow.Cells["图纸版次"].Value.ToString().Remove(0, 1);
                       aoindex.Add("图纸版次", dwgrev);
-                      string foldername = Properties.Settings.Default.filepath + temprow.Cells["名称"].Value.ToString() + "_" + prdname + "\\AO\\";
+                      string foldername = Program.InfoPath + temprow.Cells["名称"].Value.ToString() + "_" + prdname + "\\AO\\";
                       localMethod.creatDir(foldername);
                //保存地址
                aoindex.Add("索引保存地址", foldername + prdname + "_" + temprow.Cells["站位号"].Value.ToString() + "_INDEX.doc");
@@ -347,9 +347,9 @@ namespace AUTORIVET_KAOHE
                      
             foreach (var kk in ddd)
             {
-                string newfilepath = Properties.Settings.Default.filepath + "MATERIAL\\PACR_INDEX\\PACR_INDEX_" + kk.ACC + ".doc";
+                string newfilepath = Program.InfoPath + "MATERIAL\\PACR_INDEX\\PACR_INDEX_" + kk.ACC + ".doc";
 
-                System.IO.File.Copy(Properties.Settings.Default.filepath + "SAMPLE\\AOI\\PACR_INDEX.doc", Properties.Settings.Default.filepath+ "MATERIAL\\PACR_INDEX\\PACR_INDEX_"+kk.ACC+".doc", true);
+                System.IO.File.Copy(Program.InfoPath + "SAMPLE\\AOI\\PACR_INDEX.doc", Program.InfoPath+ "MATERIAL\\PACR_INDEX\\PACR_INDEX_"+kk.ACC+".doc", true);
                 var page = FileManagerNew.wordMethod.opendoc(newfilepath);
                 page.Tables[1].Cell(2, 4).Range.Text = kk.ACC;
                 page.Tables[1].Cell(2, 8).Range.Text ="C1-"+ kk.ACC+"-PACR-NEW";

@@ -367,7 +367,8 @@ namespace AUTORIVET_KAOHE
               {
                   //备份原有文件
                   //已制作方法
-                 FormMethod.backupfile(filepath);
+       
+                 localMethod.backupfile(filepath);
                  // File.Copy(filepath, backupfolder + backupname,true);
                   string sourcepath = ofd.FileName;
                   File.Copy(sourcepath, filepath, true);
@@ -835,7 +836,7 @@ namespace AUTORIVET_KAOHE
                 if (fix)
                 {
                     //做修复前需要备份文件
-                    FormMethod.backupfile(pp);
+                    localMethod.backupfile(pp);
 
 
                     tvamodel.fix_all();
@@ -845,7 +846,7 @@ namespace AUTORIVET_KAOHE
                 {
 
                     //重制前备份文件
-                    FormMethod.backupfile(pp);
+                    localMethod.backupfile(pp);
 
                     //同步数据库
                     tvamodel.updatedt();
@@ -960,7 +961,7 @@ namespace AUTORIVET_KAOHE
 
                DataRow tmprow = kk.First();
                string newfilename = tmprow["文件名"].ToString().Replace(".", "_" + jiaci + ".");
-               string folderpath = Properties.Settings.Default.filepath + firstfolder + "\\" + jiaci + "\\";
+               string folderpath = Program.InfoPath + firstfolder + "\\" + jiaci + "\\";
                string newTVApath = folderpath + tmprow["文件名"].ToString().Replace(".", "_" + jiaci + ".");
 
                localMethod.creatDir(folderpath);
@@ -1070,7 +1071,7 @@ namespace AUTORIVET_KAOHE
                if (File.Exists(newTVApath))
                {
                    //备份TVA文件
-                   FormMethod.backupfile(currentpath);
+                   localMethod.backupfile(currentpath);
 
                    File.Copy(newTVApath, currentpath, true);
 
@@ -1245,7 +1246,7 @@ namespace AUTORIVET_KAOHE
                 
 
                    string filepath = pathlist.First().ToString();
-                    FormMethod.backupfile(filepath);
+                    localMethod.backupfile(filepath);
                    pathlist = (from p in get_datatable().AsEnumerable()
                                where (p["产品名称"].ToString() == prodname) && (p["文件类型"].ToString() == "TVA")
                                select p["文件地址"]);
@@ -1398,15 +1399,19 @@ namespace AUTORIVET_KAOHE
            comboBox4.SelectedIndex = -1;
            rf_filter();
 
+            selectTVA();
+
+        }
+        private void selectTVA()
+        {
             //默认选中该产品的Process及TVA
             var kkk = from DataGridViewRow dd in dataGridView1.Rows
-                      where dd.Cells["文件类型"].Value.ToString()=="TVA"|| dd.Cells["文件类型"].Value.ToString()=="Process"
+                      where dd.Cells["文件类型"].Value.ToString() == "TVA" || dd.Cells["文件类型"].Value.ToString() == "Process"
                       select dd;
             foreach (var dd in kkk)
             {
                 dd.Cells["choose"].Value = true;
             }
-         
         }
 
        private void button10_Click(object sender, EventArgs e)
@@ -1696,7 +1701,8 @@ namespace AUTORIVET_KAOHE
            comboBox4.SelectedIndex = -1;
 
            rf_filter();
-       }
+            selectTVA();
+        }
 
        private void button16_Click(object sender, EventArgs e)
        {
@@ -1861,7 +1867,7 @@ namespace AUTORIVET_KAOHE
                       where Convert.ToBoolean(dd.Cells["choose"].Value) == true 
                       select dd.Cells["文件地址"].Value.ToString();
 
-            string outputfolder = Properties.Settings.Default.filepath.Replace("prepare", "output") + "files\\";
+            string outputfolder = Program.InfoPath.Replace("prepare", "output") + "files\\";
             foreach (string pp in kkk)
             {
                 File.Copy(pp, outputfolder + pp.Split('\\').Last(), true);
@@ -1881,8 +1887,8 @@ namespace AUTORIVET_KAOHE
             string foldername = listBox1.SelectedValue.ToString();
        
             string drawingname = foldername.Split('_')[1];
-
-            mysqlsolution.Form1 f1 = new mysqlsolution.Form1();
+         
+           NC_TOOL.ProductData f1 = new NC_TOOL.ProductData();
                 string proname;
                 if (checkBox8.Checked)
                 {
@@ -1994,7 +2000,7 @@ namespace AUTORIVET_KAOHE
           var mapDt=  AutorivetDB.fullname_table("图号,程序编号,名称");
             var fileList = from dd in mapDt.AsEnumerable()
                            let dwg = dd["名称"].ToString()+"_"+dd["图号"].ToString()
-                           let folder= Properties.Settings.Default.filepath + dwg + "\\NC\\"
+                           let folder= Program.InfoPath + dwg + "\\NC\\"
                            select new {
                                folderName=folder,
                              fileName=  dd["程序编号"].ToString()

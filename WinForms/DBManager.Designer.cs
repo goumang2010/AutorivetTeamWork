@@ -49,6 +49,7 @@
             this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fastenerTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importPeopleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iniProcessTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.renumCouponsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,7 +57,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.importPeopleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createMBOMTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eBOMTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,7 +92,8 @@
             this.createMaterialTableToolStripMenuItem,
             this.createLogTableToolStripMenuItem,
             this.createToolStripMenuItem1,
-            this.createTroubleshootTableToolStripMenuItem});
+            this.createTroubleshootTableToolStripMenuItem,
+            this.createMBOMTableToolStripMenuItem});
             this.datebaseToolStripMenuItem.Name = "datebaseToolStripMenuItem";
             this.datebaseToolStripMenuItem.Size = new System.Drawing.Size(75, 21);
             this.datebaseToolStripMenuItem.Text = "Datebase";
@@ -212,6 +215,7 @@
             this.updateToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fastenerTableToolStripMenuItem,
             this.toolsTableToolStripMenuItem,
+            this.eBOMTableToolStripMenuItem,
             this.importPeopleToolStripMenuItem,
             this.iniProcessTableToolStripMenuItem,
             this.renumCouponsToolStripMenuItem});
@@ -232,6 +236,13 @@
             this.toolsTableToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.toolsTableToolStripMenuItem.Text = "Tools table";
             this.toolsTableToolStripMenuItem.Click += new System.EventHandler(this.toolsTableToolStripMenuItem_Click);
+            // 
+            // importPeopleToolStripMenuItem
+            // 
+            this.importPeopleToolStripMenuItem.Name = "importPeopleToolStripMenuItem";
+            this.importPeopleToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.importPeopleToolStripMenuItem.Text = "Import people";
+            this.importPeopleToolStripMenuItem.Click += new System.EventHandler(this.importPeopleToolStripMenuItem_Click);
             // 
             // iniProcessTableToolStripMenuItem
             // 
@@ -296,12 +307,19 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // importPeopleToolStripMenuItem
+            // createMBOMTableToolStripMenuItem
             // 
-            this.importPeopleToolStripMenuItem.Name = "importPeopleToolStripMenuItem";
-            this.importPeopleToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.importPeopleToolStripMenuItem.Text = "Import people";
-            this.importPeopleToolStripMenuItem.Click += new System.EventHandler(this.importPeopleToolStripMenuItem_Click);
+            this.createMBOMTableToolStripMenuItem.Name = "createMBOMTableToolStripMenuItem";
+            this.createMBOMTableToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
+            this.createMBOMTableToolStripMenuItem.Text = "Create MBOM table";
+            this.createMBOMTableToolStripMenuItem.Click += new System.EventHandler(this.createMBOMTableToolStripMenuItem_Click);
+            // 
+            // eBOMTableToolStripMenuItem
+            // 
+            this.eBOMTableToolStripMenuItem.Name = "eBOMTableToolStripMenuItem";
+            this.eBOMTableToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.eBOMTableToolStripMenuItem.Text = "EBOM Table";
+            this.eBOMTableToolStripMenuItem.Click += new System.EventHandler(this.eBOMTableToolStripMenuItem_Click);
             // 
             // database_management
             // 
@@ -352,5 +370,7 @@
         private System.Windows.Forms.ToolStripMenuItem iniProcessTableToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem renumCouponsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem importPeopleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem createMBOMTableToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eBOMTableToolStripMenuItem;
     }
 }

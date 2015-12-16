@@ -72,16 +72,13 @@ namespace AUTORIVET_KAOHE
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            //向客户机添加凭据
-      FormMethod.creatCredential();
 
-            Program.userID = FormMethod.GetMachineName();
             if (Program.ManagerActived==true)
             {
                 ActiveManager();
             }
 
-                Program.prodTable = AutorivetDB.fullname_table("图号,名称,站位号,程序编号");
+                
 
             Program.procDic.Add("FASTENER DRILL BEFORE AUTOMATED FASTENING", "架前钻孔—架后手铆");
             Program.procDic.Add("FASTENER INSTALLED AFTER AUTOMATED FASTENING", "不安装");
@@ -987,7 +984,7 @@ dataviewfresh2();
 
         private void nCToolToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var f1 = new program_input();
+            var f1 = new NC_TOOL.program_input();
           f1.inputValue = "";
             f1.Show();
         }
@@ -996,6 +993,12 @@ dataviewfresh2();
         {
             Feedback f1 = new Feedback();
             f1.Show();
+        }
+
+        private void sACISearcherToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SACISearcher.MainSearchForm f = new SACISearcher.MainSearchForm();
+            f.Show();
         }
     }
 }

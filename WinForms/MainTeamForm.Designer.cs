@@ -112,6 +112,7 @@
             this.button14 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
+            this.sACISearcherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -435,14 +436,14 @@
             // generateToolStripMenuItem
             // 
             this.generateToolStripMenuItem.Name = "generateToolStripMenuItem";
-            this.generateToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.generateToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.generateToolStripMenuItem.Text = "Generate all";
             this.generateToolStripMenuItem.Click += new System.EventHandler(this.generateToolStripMenuItem_Click);
             // 
             // peopleToolStripMenuItem
             // 
             this.peopleToolStripMenuItem.Name = "peopleToolStripMenuItem";
-            this.peopleToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.peopleToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.peopleToolStripMenuItem.Text = "People";
             this.peopleToolStripMenuItem.Click += new System.EventHandler(this.peopleToolStripMenuItem_Click);
             // 
@@ -452,6 +453,7 @@
             this.tVAToolsToolStripMenuItem,
             this.nCToolToolStripMenuItem,
             this.fileManagerToolStripMenuItem,
+            this.sACISearcherToolStripMenuItem,
             this.randomGENToolStripMenuItem,
             this.killWordToolStripMenuItem,
             this.killExcelToolStripMenuItem});
@@ -462,42 +464,42 @@
             // tVAToolsToolStripMenuItem
             // 
             this.tVAToolsToolStripMenuItem.Name = "tVAToolsToolStripMenuItem";
-            this.tVAToolsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.tVAToolsToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.tVAToolsToolStripMenuItem.Text = "TVA Tool";
             this.tVAToolsToolStripMenuItem.Click += new System.EventHandler(this.tVAToolsToolStripMenuItem_Click);
             // 
             // nCToolToolStripMenuItem
             // 
             this.nCToolToolStripMenuItem.Name = "nCToolToolStripMenuItem";
-            this.nCToolToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.nCToolToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.nCToolToolStripMenuItem.Text = "NC Tool";
             this.nCToolToolStripMenuItem.Click += new System.EventHandler(this.nCToolToolStripMenuItem_Click);
             // 
             // fileManagerToolStripMenuItem
             // 
             this.fileManagerToolStripMenuItem.Name = "fileManagerToolStripMenuItem";
-            this.fileManagerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.fileManagerToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.fileManagerToolStripMenuItem.Text = "File Manager";
             this.fileManagerToolStripMenuItem.Click += new System.EventHandler(this.fileManagerToolStripMenuItem_Click);
             // 
             // randomGENToolStripMenuItem
             // 
             this.randomGENToolStripMenuItem.Name = "randomGENToolStripMenuItem";
-            this.randomGENToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.randomGENToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.randomGENToolStripMenuItem.Text = "RandomGEN";
             this.randomGENToolStripMenuItem.Click += new System.EventHandler(this.randomGENToolStripMenuItem_Click);
             // 
             // killWordToolStripMenuItem
             // 
             this.killWordToolStripMenuItem.Name = "killWordToolStripMenuItem";
-            this.killWordToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.killWordToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.killWordToolStripMenuItem.Text = "Kill Word";
             this.killWordToolStripMenuItem.Click += new System.EventHandler(this.killWordToolStripMenuItem_Click);
             // 
             // killExcelToolStripMenuItem
             // 
             this.killExcelToolStripMenuItem.Name = "killExcelToolStripMenuItem";
-            this.killExcelToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.killExcelToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.killExcelToolStripMenuItem.Text = "Kill Excel";
             this.killExcelToolStripMenuItem.Click += new System.EventHandler(this.killExcelToolStripMenuItem_Click);
             // 
@@ -871,6 +873,13 @@
             this.button16.Visible = false;
             this.button16.Click += new System.EventHandler(this.button16_Click);
             // 
+            // sACISearcherToolStripMenuItem
+            // 
+            this.sACISearcherToolStripMenuItem.Name = "sACISearcherToolStripMenuItem";
+            this.sACISearcherToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.sACISearcherToolStripMenuItem.Text = "SACISearcher";
+            this.sACISearcherToolStripMenuItem.Click += new System.EventHandler(this.sACISearcherToolStripMenuItem_Click);
+            // 
             // MainTeamForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1025,6 +1034,7 @@
         private System.Windows.Forms.ToolStripMenuItem couponTestToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nCToolToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutFeedbackToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sACISearcherToolStripMenuItem;
     }
 }
 

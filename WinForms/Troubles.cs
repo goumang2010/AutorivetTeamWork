@@ -76,7 +76,7 @@ namespace AUTORIVET_KAOHE
                         //流水号
                         string liushui = temprow["流水号"].ToString();
 
-                        string folderpath = Properties.Settings.Default.filepath + "Troubles" + "\\" + liushui + "\\";
+                        string folderpath = Program.InfoPath + "Troubles" + "\\" + liushui + "\\";
                         localMethod.creatDir(folderpath);
                         System.Diagnostics.Process.Start("explorer.exe", folderpath);
                        

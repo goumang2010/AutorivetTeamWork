@@ -237,7 +237,7 @@ namespace AUTORIVET_KAOHE
 
        //     proname = proname + "process";
 
-            string folderpath = Properties.Settings.Default.filepath + temprow["产品名称"].ToString()+"_" + proname+"\\NC\\";
+            string folderpath = Program.InfoPath + temprow["产品名称"].ToString()+"_" + proname+"\\NC\\";
 
             string progname=   Program.prodTable.Select("图号='" + proname + "'").First()["程序编号"].ToString();
              string filepath = folderpath + "\\" + progname;
@@ -282,7 +282,7 @@ namespace AUTORIVET_KAOHE
                                     string newfoldername = targetDri.First().RootDirectory.FullName;
 
                          
-                                        FormMethod.backupfolder(newfoldername);
+                                        localMethod.backupfolder(newfoldername);
 
                                     localMethod.creatDir(newfoldername);
                                   
@@ -372,7 +372,7 @@ namespace AUTORIVET_KAOHE
                    string prodname=temprow["图号"].ToString();
                    string chnname=temprow["产品名称"].ToString();
                    string fuseno=temprow["产品架次"].ToString();
-                    string foldername=Properties.Settings.Default.filepath+chnname+ "_"+prodname+"\\"+fuseno+"\\Inspection\\";
+                    string foldername=Program.InfoPath+chnname+ "_"+prodname+"\\"+fuseno+"\\Inspection\\";
 
                         //刷新试片编号
 
@@ -433,7 +433,7 @@ namespace AUTORIVET_KAOHE
                     if(fstname.Contains("B0206002"))
                     {
 
-                       var wBook =new excelMethod(Properties.Settings.Default.filepath + "SAMPLE\\COUPON\\HI_LITE.xls");
+                       var wBook =new excelMethod(Program.InfoPath + "SAMPLE\\COUPON\\HI_LITE.xls");
                         string filename = foldername + progid + "_" + couponno + "_" + progpart + "_" + secthk + ".xls";
                         if(File.Exists(filename))
                         {
@@ -473,7 +473,7 @@ namespace AUTORIVET_KAOHE
                     {
 
 
-                    var wBook =new excelMethod(Properties.Settings.Default.filepath + "SAMPLE\\COUPON\\RIVET.xls");
+                    var wBook =new excelMethod(Program.InfoPath + "SAMPLE\\COUPON\\RIVET.xls");
                   //   progid = pp["ID"].ToString();
                         string filename = foldername + progid + "_" + couponno + "_" + progpart + "_" + secthk + "_BEFORE.xls";
 
@@ -532,7 +532,7 @@ namespace AUTORIVET_KAOHE
                         //生成产品检查单
 
                         string newpath = foldername+prodname+ "_INSPECTION.doc";
-                        File.Copy(Properties.Settings.Default.filepath + "SAMPLE\\PRODUCT_INSPECTION.docx", newpath, true);
+                        File.Copy(Program.InfoPath + "SAMPLE\\PRODUCT_INSPECTION.docx", newpath, true);
                         var myAO = wordMethod.opendoc(newpath);
 
                         wordMethod.SearchReplace(myAO, "[1]", prodname);
@@ -573,7 +573,7 @@ namespace AUTORIVET_KAOHE
                //     Dictionary<string, string> tmp = new Dictionary<string, string>();
                //     tmp.Add("类型", "补铆");
                //     //建立补铆文件夹
-               //     string rootdir =Properties.Settings.Default.filepath  + temprow[2].ToString() + "_" + temprow[0].ToString() + "\\" + temprow[3].ToString() + "\\补铆\\" ;
+               //     string rootdir =Program.InfoPath  + temprow[2].ToString() + "_" + temprow[0].ToString() + "\\" + temprow[3].ToString() + "\\补铆\\" ;
                   
                     
                //     if (!System.IO.Directory.Exists(rootdir))
@@ -872,6 +872,43 @@ namespace AUTORIVET_KAOHE
             }
           
             
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            var dd = from pp in unidt.AsEnumerable()
+                     group pp by pp["产品架次"].ToString() into m
+                     select m;
+            var ff = from pp in unidt.AsEnumerable()
+                     group pp by pp["图号"].ToString() into n
+                     select n;
+                    
+                    
+           
+            DataTable matrix = new DataTable();
+            matrix.Columns.Add("图号");
+            matrix.Columns.Add("名称");
+
+            foreach (var item in dd.OrderBy(o=>o.Key))
+            {
+                matrix.Columns.Add(item.Key);
+               
+            }
+            foreach (var item in ff.OrderBy(o=>o.Key))
+            {
+                var dr = matrix.Rows.Add();
+                dr["图号"] =item.Key;
+             
+                foreach (var pp in item)
+                {
+                    dr["名称"] = pp["产品名称"].ToString();
+                    dr[pp["产品架次"].ToString()] = pp["开始日期"].ToString();
+                }
+            }
+
+            excelMethod.SaveDataTableToExcel(matrix);
+
+
         }
     }
 }
