@@ -20,8 +20,7 @@ namespace AUTORIVET_KAOHE
     public partial class couponTest : Form
     {
         Dictionary<string, string> fstenerT = DbHelperSQL.getDic("select Fasteners,Tcode from 紧固件列表");
-        List<Control[]> controlList= new List<Control[]>();
-      
+        Dictionary<string, Control[]> controlList = new Dictionary<string, Control[]>();
         private DataTable coupondt;
 
         public couponTest()
@@ -46,11 +45,11 @@ namespace AUTORIVET_KAOHE
 
 
 
-            foreach (var cc in controlList)
+            foreach (var cc in controlList.Values)
             {
                 List<string> sb = new List<string>();
 
-                if (cc[1].Visible==true)
+                if (cc[1].ForeColor==Color.ForestGreen)
                 {
                     //获取试片文本
                     string coupontext = cc[0].Text;
@@ -377,16 +376,24 @@ namespace AUTORIVET_KAOHE
             {
                 string controlname = "label" + i.ToString();
                 var leftLabel = this.Controls["label" + i.ToString()];
-                leftLabel.Text = CPNameDic("l" + (i - 9).ToString());
-                controlList.Add(new Control[5] { leftLabel, this.Controls["label" + (i-9).ToString()], this.Controls["comboBox" + (i - 9).ToString()], this.Controls["comboBox" + (28-i).ToString()], this.Controls["comboBox" + (55 - i).ToString()] });
+                var leftLabel2 = this.Controls["label" + (i - 9).ToString()];
+                string leftindex = "l" + (i - 9).ToString();
+                leftLabel.Text = CPNameDic(leftindex);
+                controlList.Add(leftindex,new Control[5] { leftLabel, leftLabel2, this.Controls["comboBox" + (i - 9).ToString()], this.Controls["comboBox" + (28-i).ToString()], this.Controls["comboBox" + (55 - i).ToString()] });
                 var rightLabel = this.Controls["label" + (37 - i).ToString()];
-                rightLabel.Text = CPNameDic("r" + (i - 9).ToString());
-                controlList.Add(new Control[5] { rightLabel, this.Controls["label" + (46-i).ToString()], this.Controls["comboBox" + (46-i).ToString()], this.Controls["comboBox" + (37 - i).ToString()], this.Controls["comboBox" + (64 - i).ToString()] });
-
+                var rightLabel2 = this.Controls["label" + (46 - i).ToString()];
+                string rightindex = "r"+(i - 9).ToString();
+                rightLabel.Text = CPNameDic(rightindex);
+                controlList.Add(rightindex ,new Control[5] { rightLabel, rightLabel2, this.Controls["comboBox" + (46-i).ToString()], this.Controls["comboBox" + (37 - i).ToString()], this.Controls["comboBox" + (64 - i).ToString()] });
+                leftLabel2.Click += new System.EventHandler(this.coupon_tweak);
+                leftLabel.DoubleClick += new System.EventHandler(this.editCPName);
+                rightLabel2.Click += new System.EventHandler(this.coupon_tweak);
+                rightLabel.DoubleClick += new System.EventHandler(this.editCPName);
 
 
             }
-           
+
+       
 
 
 
@@ -398,7 +405,11 @@ namespace AUTORIVET_KAOHE
 
 
 
+        }
 
+        private void LeftLabel_DoubleClick(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void ListBox1_Click(object sender, EventArgs e)
@@ -416,10 +427,11 @@ namespace AUTORIVET_KAOHE
 
             dataGridView2.DataSource = coupondt;
 
-            foreach(var dd in controlList)
+            foreach(var dd in controlList.Values)
             {
                 //  dd.SetVisible(false);
-                dd.Skip(1).SetPropValue("Visible", false);
+                dd[1].ForeColor = Color.Black;
+                dd.Skip(2).SetPropValue("Visible", false);
 
                
                 //清除已存在的紧固件信息
@@ -434,14 +446,15 @@ namespace AUTORIVET_KAOHE
 
                 string querystr = (dr["试片1"].ToString() + "/" + dr["试片2"].ToString()).Replace("C1-","");
 
-                var controlls = controlList.Where(dd => dd[0].Text == querystr);
+                var controlls = controlList.Values.Where(dd => dd[0].Text == querystr);
                     
 
                     if(controlls.Count()>0)
                 {
                     var controlArray = controlls.First();
-                  //  controlArray.SetVisible(true);
-                    controlArray.Skip(1).SetPropValue("Visible", true);
+                    //  controlArray.SetVisible(true);
+                    controlArray[1].ForeColor = Color.ForestGreen;
+                    controlArray.Skip(2).SetPropValue("Visible", true);
 
 
                    var progname = dr["程序段编号"].ToString().Split('_');
@@ -504,21 +517,25 @@ namespace AUTORIVET_KAOHE
 
         private void coupon_tweak(object sender, EventArgs e)
         {
-            var selectedcontrolList = controlList.Where(dd => dd[0] == sender);
+            var lb2 = (Label)sender;
+            var selectedcontrolList = controlList.Values.Where(dd => dd[1] == lb2);
             if (selectedcontrolList.Count()>0)
             {
 
      
            var selectedControl= selectedcontrolList.First();
 
-            if (selectedControl[1].Visible==false)
+            if (lb2.ForeColor == Color.Black)
             {
-                selectedControl.Skip(1).SetPropValue("Visible", true);
+
+                 lb2.ForeColor =Color.ForestGreen;
+                selectedControl.Skip(2).SetPropValue("Visible", true);
                // selectedControl.Skip(2).SetPropValue("Text", "");
             }
             else
             {
-                selectedControl.Skip(1).SetPropValue("Visible", false);
+                    lb2.ForeColor = Color.Black;
+                    selectedControl.Skip(2).SetPropValue("Visible", false);
             }
 
             }
@@ -592,18 +609,31 @@ namespace AUTORIVET_KAOHE
            
         }
 
-        private void label11_DoubleClick(object sender, EventArgs e)
+      
+
+
+        private  void editCPName(object sender, EventArgs e)
         {
             var cl = (Label)sender;
             string oldstr = cl.Text;
-           string newStr= localMethod.VBInputBox("不需要试片输入NONE", "输入新的编号", oldstr);
-            if(newStr!="")
-            {
-                localMethod.UpdateConfigValue(oldstr, newStr, "CouponCfg.py");
-            }
-            
+            var labelIndex = (from p in controlList
+                              where p.Value[0] == cl
+                              select p.Key).First();
 
+            CPNameEditor f = new CPNameEditor(labelIndex,oldstr, this);
+            f.Show();
+            //string newStr = localMethod.VBInputBox("不需要试片输入NONE", "输入新的编号", oldstr);
+            //if (newStr != "")
+            //{
+            //    localMethod.UpdateConfigValue(oldstr, newStr, "CouponCfg.py");
+            //}
 
         }
+        public void UpdateLabelName(string lbi, string name)
+        {
+
+            controlList[lbi][0].Text = name;
+        }
+
     }
 }

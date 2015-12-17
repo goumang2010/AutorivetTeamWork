@@ -385,8 +385,10 @@ namespace AUTORIVET_KAOHE
 
                 }
                 p1.Add(jitem);
+                p1.Sort((a, b) => DateTime.Parse(b.date).CompareTo(DateTime.Parse(a.date)));
+                
                 StringWriter sb = new StringWriter();
-                serializer.Serialize(new JsonTextWriter(sb), p1);
+                serializer.Serialize(new JsonTextWriter(sb), p1.Take(8));
 
                 temprow["历史"] = sb.ToString();
                dataGridView1.Rows[l].Cells["历史"].ToolTipText = p1.JsonToString();

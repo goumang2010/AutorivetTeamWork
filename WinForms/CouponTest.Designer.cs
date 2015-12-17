@@ -132,6 +132,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button3 = new System.Windows.Forms.Button();
             this.productList1 = new mysqlsolution.productList();
+            this.label38 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -306,7 +307,6 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(0, 12);
             this.label10.TabIndex = 27;
-            this.label10.Click += new System.EventHandler(this.coupon_tweak);
             // 
             // label11
             // 
@@ -316,8 +316,6 @@
             this.label11.Size = new System.Drawing.Size(89, 12);
             this.label11.TabIndex = 28;
             this.label11.Text = "SKIN-70/FRM-60";
-            this.label11.Click += new System.EventHandler(this.coupon_tweak);
-            this.label11.DoubleClick += new System.EventHandler(this.label11_DoubleClick);
             // 
             // label12
             // 
@@ -327,7 +325,6 @@
             this.label12.Size = new System.Drawing.Size(101, 12);
             this.label12.TabIndex = 29;
             this.label12.Text = "SKIN-125/STR-100";
-            this.label12.Click += new System.EventHandler(this.coupon_tweak);
             // 
             // label13
             // 
@@ -337,7 +334,6 @@
             this.label13.Size = new System.Drawing.Size(89, 12);
             this.label13.TabIndex = 30;
             this.label13.Text = "SKIN-70/FRM-80";
-            this.label13.Click += new System.EventHandler(this.coupon_tweak);
             // 
             // label14
             // 
@@ -347,7 +343,6 @@
             this.label14.Size = new System.Drawing.Size(95, 12);
             this.label14.TabIndex = 31;
             this.label14.Text = "SKIN-125/STR-70";
-            this.label14.Click += new System.EventHandler(this.coupon_tweak);
             // 
             // label15
             // 
@@ -357,7 +352,6 @@
             this.label15.Size = new System.Drawing.Size(101, 12);
             this.label15.TabIndex = 32;
             this.label15.Text = "SKIN-160/FRM-060";
-            this.label15.Click += new System.EventHandler(this.coupon_tweak);
             // 
             // label16
             // 
@@ -367,7 +361,6 @@
             this.label16.Size = new System.Drawing.Size(89, 12);
             this.label16.TabIndex = 33;
             this.label16.Text = "SKIN-70/STR-50";
-            this.label16.Click += new System.EventHandler(this.coupon_tweak);
             // 
             // label17
             // 
@@ -377,7 +370,6 @@
             this.label17.Size = new System.Drawing.Size(89, 12);
             this.label17.TabIndex = 34;
             this.label17.Text = "SKIN-70/STR-70";
-            this.label17.Click += new System.EventHandler(this.coupon_tweak);
             // 
             // label18
             // 
@@ -387,7 +379,6 @@
             this.label18.Size = new System.Drawing.Size(89, 12);
             this.label18.TabIndex = 35;
             this.label18.Text = "SKIN-70/STR-90";
-            this.label18.Click += new System.EventHandler(this.coupon_tweak);
             // 
             // dataGridView2
             // 
@@ -416,7 +407,6 @@
             this.label19.Size = new System.Drawing.Size(89, 12);
             this.label19.TabIndex = 55;
             this.label19.Text = "SKIN-90/STR-70";
-            this.label19.Click += new System.EventHandler(this.coupon_tweak);
             // 
             // label20
             // 
@@ -426,7 +416,6 @@
             this.label20.Size = new System.Drawing.Size(29, 12);
             this.label20.TabIndex = 54;
             this.label20.Text = "NONE";
-            this.label20.Click += new System.EventHandler(this.coupon_tweak);
             // 
             // label21
             // 
@@ -436,7 +425,6 @@
             this.label21.Size = new System.Drawing.Size(89, 12);
             this.label21.TabIndex = 53;
             this.label21.Text = "SKIN-90/STR-50";
-            this.label21.Click += new System.EventHandler(this.coupon_tweak);
             // 
             // label22
             // 
@@ -446,7 +434,6 @@
             this.label22.Size = new System.Drawing.Size(29, 12);
             this.label22.TabIndex = 52;
             this.label22.Text = "NONE";
-            this.label22.Click += new System.EventHandler(this.coupon_tweak);
             // 
             // label23
             // 
@@ -456,7 +443,6 @@
             this.label23.Size = new System.Drawing.Size(95, 12);
             this.label23.TabIndex = 51;
             this.label23.Text = "SKIN-160/FRM-60";
-            this.label23.Click += new System.EventHandler(this.coupon_tweak);
             // 
             // label24
             // 
@@ -466,7 +452,6 @@
             this.label24.Size = new System.Drawing.Size(89, 12);
             this.label24.TabIndex = 50;
             this.label24.Text = "SKIN-90/FRM-80";
-            this.label24.Click += new System.EventHandler(this.coupon_tweak);
             // 
             // label25
             // 
@@ -476,7 +461,6 @@
             this.label25.Size = new System.Drawing.Size(101, 12);
             this.label25.TabIndex = 49;
             this.label25.Text = "SKIN-110/STR-100";
-            this.label25.Click += new System.EventHandler(this.coupon_tweak);
             // 
             // label26
             // 
@@ -486,7 +470,6 @@
             this.label26.Size = new System.Drawing.Size(89, 12);
             this.label26.TabIndex = 48;
             this.label26.Text = "SKIN-90/FRM-60";
-            this.label26.Click += new System.EventHandler(this.coupon_tweak);
             // 
             // label27
             // 
@@ -496,7 +479,6 @@
             this.label27.Size = new System.Drawing.Size(89, 12);
             this.label27.TabIndex = 47;
             this.label27.Text = "SKIN-90/FRM-50";
-            this.label27.Click += new System.EventHandler(this.coupon_tweak);
             // 
             // label28
             // 
@@ -2161,11 +2143,21 @@
             this.productList1.TabIndex = 17;
             this.productList1.Load += new System.EventHandler(this.productList1_Load);
             // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(159, 9);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(137, 24);
+            this.label38.TabIndex = 115;
+            this.label38.Text = "双击标签改变试片配置；\r\n单击“对号”选择试片";
+            // 
             // couponTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1438, 855);
+            this.Controls.Add(this.label38);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.listBox2);
@@ -2270,7 +2262,6 @@
             this.Name = "couponTest";
             this.Text = "couponTest";
             this.Load += new System.EventHandler(this.couponTest_Load);
-            this.Click += new System.EventHandler(this.coupon_tweak);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -2384,6 +2375,7 @@
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label38;
         // private productList productList1;
     }
 }
