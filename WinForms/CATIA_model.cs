@@ -272,8 +272,8 @@ namespace AUTORIVET_KAOHE
                        MessageBox.Show(kk.Message);
                    }
 
-                   fileInfo tempfile = new fileInfo();
-                   tempfile.add(filepath, filefullname, filename, fileExt);
+                   List<FileInfo> tempfile = new List<FileInfo>();
+                   tempfile.Add(new FileInfo(filefullname));
                    //扫描该文档
                    FormMethod.scanfileCatia(tempfile);
                    get_datatable();

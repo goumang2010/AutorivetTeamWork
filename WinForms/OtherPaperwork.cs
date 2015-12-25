@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using Microsoft.Office.Interop.Word;
 using mysqlsolution;
 using OFFICE_Method;
-
+using System.IO;
 
 namespace AUTORIVET_KAOHE
 {
@@ -33,9 +33,10 @@ namespace AUTORIVET_KAOHE
 
 
 
-                fileInfo allfiles = fileOP.WalkTree(scanpath);
+                List<FileInfo> allfiles=new List<FileInfo>();
+                allfiles.WalkTree(scanpath);
 
-                scanfiledoc(allfiles.extfilter("doc").namefilter("", "~$"));
+                scanfiledoc(allfiles.extfilter("doc").namefilter("", "~$").ToList());
 
             }
 
@@ -45,7 +46,7 @@ namespace AUTORIVET_KAOHE
             dataGridView1.DataSource = DbHelperSQL.Query("select 文件名,文件编号,文件名称,文件地址,关联产品,文件格式,修改日期,工作包 from otherpaperwork ").Tables[0];
         }
 
-        private void scanfiledoc(fileInfo allfiles)
+        private void scanfiledoc(List<FileInfo> allfiles)
         {
           var faildoc=new System.Data.DataTable();
             //title[0] = "名称";
@@ -53,19 +54,19 @@ namespace AUTORIVET_KAOHE
             faildoc.Columns.Add("名称", typeof(string));
             faildoc.Columns.Add("路径", typeof(string));
 
-            int count = allfiles.count;
+            int count = allfiles.Count;
             List<string> creatName = new List<string>();
 
             for (int i = 0; i < count; i++)
             {
                 //文件名
-                string filename = allfiles.fileName[i];
+                string filename = allfiles[i].Name;
                 //修改日期
-                string revdate = allfiles.fileDate[i];
-                string filetype = allfiles.fileExt[i];
+                string revdate = allfiles[i].LastWriteTime.ToShortDateString();
+                string filetype = allfiles[i].Extension;
 
 
-                string filefullname = allfiles.fileFullName[i].Replace("\\", "\\\\"); ;
+                string filefullname = allfiles[i].FullName.Replace("\\", "\\\\"); ;
                 Document abc = wordMethod.opendoc(filefullname,false);
                 string bianhao;
                 string bianhaotest = wordMethod.gettext(abc, 3, 1);

@@ -104,12 +104,6 @@
     <None Include="AutorivetService_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\mysqlsolution\mysqlsolution\MySqlSolution.csproj">
-      <Project>{41f56599-8d65-48b1-ac56-99e8d146bc2d}</Project>
-      <Name>MySqlSolution</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="ProjectInstaller.resx">
       <DependentUpon>ProjectInstaller.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,7 +123,12 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\GoumangToolKit\goumangToolKit\GoumangToolKit.csproj">
+      <Project>{41f56599-8d65-48b1-ac56-99e8d146bc2d}</Project>
+      <Name>GoumangToolKit</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

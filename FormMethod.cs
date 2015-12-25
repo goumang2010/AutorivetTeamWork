@@ -119,7 +119,7 @@ namespace AUTORIVET_KAOHE
            
             test.WalkTree(Program.InfoPath);
 
-            //fileInfo dd = fileOP.WalkTree(Program.InfoPath);
+            //List<FileInfo> dd = fileOP.WalkTree(Program.InfoPath);
            string backupfolder=@"\\192.168.3.32\Autorivet\Prepare\BACKUP\BACKUP_ALL\";
                localMethod.creatDir(backupfolder);
 
@@ -261,7 +261,8 @@ namespace AUTORIVET_KAOHE
 
         public static void scanfiledoc(string path, Microsoft.Office.Interop.Word.Document myWordfile = null, bool closeword = true)
         {
-            fileInfo allfiles = fileOP.singlefile(path);
+            List<FileInfo> allfiles = new List<FileInfo>() { new FileInfo(path) };
+      
 
             FormMethod.scanfiledoc(allfiles, myWordfile: myWordfile, closeword: closeword);
             //((Form_Interface)get_Form("paperWork")).get_datatable();
@@ -415,9 +416,9 @@ namespace AUTORIVET_KAOHE
             Thread.Sleep(5);
         }
 
-        public static void scanfiledoc(fileInfo allfiles, bool rpnum = false, Microsoft.Office.Interop.Word.Document myWordfile =null,bool closeword = true)
+        public static void scanfiledoc(List<FileInfo> allfiles, bool rpnum = false, Microsoft.Office.Interop.Word.Document myWordfile =null,bool closeword = true)
         {
-            int count = allfiles.count;
+            int count = allfiles.Count;
             List<string> creatName = new List<string>();
             Microsoft.Office.Interop.Word.Application wordApp=null;
 
@@ -429,9 +430,9 @@ namespace AUTORIVET_KAOHE
 
 
                 //文件名
-                string filename = allfiles.fileName[i];
+                string filename = allfiles[i].Name;
                 //修改日期
-                string revdate = allfiles.fileDate[i];
+                string revdate = allfiles[i].LastWriteTime.ToShortDateString();
 
                 //在数据库中搜寻相关数据
                 System.Data.DataTable comparefile = DbHelperSQL.Query("select 文件名,修改日期 from paperWork where 文件名='" + filename + "' and 修改日期='" + revdate + "';").Tables[0];
@@ -445,7 +446,7 @@ namespace AUTORIVET_KAOHE
                     bool inputdata = true;
 
                     string[] mfprop = filename.Split('_');
-                    string biaoshi = mfprop.Last().Replace(allfiles.fileExt[i], "");
+                    string biaoshi = mfprop.Last().Replace(allfiles[i].Extension, "");
                     int weishu = mfprop.Count();
 
 
@@ -464,10 +465,10 @@ namespace AUTORIVET_KAOHE
 
 
                     //文件地址
-                    string filefullname = allfiles.fileFullName[i].Replace("\\", "\\\\");
+                    string filefullname = allfiles[i].FullName.Replace("\\", "\\\\");
 
                     //文件夹
-                    string foldername = allfiles.filePath[i];
+                    string foldername = allfiles[i].DirectoryName;
                     //对该目录进行了反转
                     List<string> folderprop = foldername.Split('\\').Reverse().ToList();
                     //关联产品
@@ -486,7 +487,7 @@ namespace AUTORIVET_KAOHE
                        wordApp = new Microsoft.Office.Interop.Word.Application();
                         wordApp.Visible = false;
 
-                        myWordfile = wordApp.Documents.Open(allfiles.fileFullName[i]);
+                        myWordfile = wordApp.Documents.Open(allfiles[i].FullName);
                     }
                     else
                     {
@@ -645,9 +646,9 @@ namespace AUTORIVET_KAOHE
       
             
         }
-        public static void scanfileCatia(fileInfo allfiles)
+        public static void scanfileCatia(List<FileInfo> allfiles)
         {
-            int count = allfiles.count;
+            int count = allfiles.Count;
             List<string> creatName = new List<string>();
 
             for (int i = 0; i < count; i++)
@@ -655,10 +656,10 @@ namespace AUTORIVET_KAOHE
 
 
                 //文件名
-                string filename = allfiles.fileName[i];
+                string filename = allfiles[i].Name;
                 //修改日期
-                string revdate = allfiles.fileDate[i];
-                string ext=allfiles.fileExt[i];
+                string revdate = allfiles[i].LastWriteTime.ToShortDateString();
+                string ext=allfiles[i].Extension;
                 //在数据库中搜寻相关数据
                 System.Data.DataTable comparefile = DbHelperSQL.Query("select 文件名,修改日期 from paperWork where 文件名='" + filename + "' and 修改日期='" + revdate + "';").Tables[0];
               
@@ -681,10 +682,10 @@ namespace AUTORIVET_KAOHE
 
 
                     //文件地址
-                    string filefullname = allfiles.fileFullName[i].Replace("\\", "\\\\");
+                    string filefullname = allfiles[i].FullName.Replace("\\", "\\\\");
 
                     //文件夹
-                    string foldername = allfiles.filePath[i];
+                    string foldername = allfiles[i].DirectoryName;
                     //对该目录进行了反转
                     List<string> folderprop = foldername.Split('\\').Reverse().ToList();
                     //关联产品

@@ -46,9 +46,11 @@
             this.createLogTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.createTroubleshootTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createMBOMTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fastenerTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eBOMTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importPeopleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iniProcessTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.renumCouponsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,8 +59,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.createMBOMTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eBOMTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button3 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -210,6 +211,13 @@
             this.createTroubleshootTableToolStripMenuItem.Text = "Create Trouble_shoot table";
             this.createTroubleshootTableToolStripMenuItem.Click += new System.EventHandler(this.createTroubleshootTableToolStripMenuItem_Click);
             // 
+            // createMBOMTableToolStripMenuItem
+            // 
+            this.createMBOMTableToolStripMenuItem.Name = "createMBOMTableToolStripMenuItem";
+            this.createMBOMTableToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
+            this.createMBOMTableToolStripMenuItem.Text = "Create MBOM table";
+            this.createMBOMTableToolStripMenuItem.Click += new System.EventHandler(this.createMBOMTableToolStripMenuItem_Click);
+            // 
             // updateToolStripMenuItem
             // 
             this.updateToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -236,6 +244,13 @@
             this.toolsTableToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.toolsTableToolStripMenuItem.Text = "Tools table";
             this.toolsTableToolStripMenuItem.Click += new System.EventHandler(this.toolsTableToolStripMenuItem_Click);
+            // 
+            // eBOMTableToolStripMenuItem
+            // 
+            this.eBOMTableToolStripMenuItem.Name = "eBOMTableToolStripMenuItem";
+            this.eBOMTableToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.eBOMTableToolStripMenuItem.Text = "EBOM Table";
+            this.eBOMTableToolStripMenuItem.Click += new System.EventHandler(this.eBOMTableToolStripMenuItem_Click);
             // 
             // importPeopleToolStripMenuItem
             // 
@@ -307,25 +322,22 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // createMBOMTableToolStripMenuItem
+            // button3
             // 
-            this.createMBOMTableToolStripMenuItem.Name = "createMBOMTableToolStripMenuItem";
-            this.createMBOMTableToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
-            this.createMBOMTableToolStripMenuItem.Text = "Create MBOM table";
-            this.createMBOMTableToolStripMenuItem.Click += new System.EventHandler(this.createMBOMTableToolStripMenuItem_Click);
-            // 
-            // eBOMTableToolStripMenuItem
-            // 
-            this.eBOMTableToolStripMenuItem.Name = "eBOMTableToolStripMenuItem";
-            this.eBOMTableToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.eBOMTableToolStripMenuItem.Text = "EBOM Table";
-            this.eBOMTableToolStripMenuItem.Click += new System.EventHandler(this.eBOMTableToolStripMenuItem_Click);
+            this.button3.Location = new System.Drawing.Point(32, 473);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 20;
+            this.button3.Text = "统计入库帐";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // database_management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(847, 656);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.button1);
@@ -372,5 +384,6 @@
         private System.Windows.Forms.ToolStripMenuItem importPeopleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createMBOMTableToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eBOMTableToolStripMenuItem;
+        private System.Windows.Forms.Button button3;
     }
 }

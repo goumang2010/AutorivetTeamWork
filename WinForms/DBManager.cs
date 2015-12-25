@@ -1,6 +1,7 @@
 ﻿using mysqlsolution;
 using System;
 using System.Data;
+using System.Linq;
 using System.Windows.Forms;
 
 
@@ -186,6 +187,67 @@ namespace AUTORIVET_KAOHE
 
         private void eBOMTableToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var dt = AutorivetDB.loadfromExcel();
+
+
+            var d1 = from DataRow pp in dt.Rows
+                     let partnum = pp["零件号"].ToString()
+                     let dwg = partnum.Split('-')[0]
+                     group pp by dwg into jj
+                     select new
+                     {
+                         dwg = jj.Key,
+                         ptls = from hh in jj
+                                group hh by hh["零件号"].ToString() into qq
+                                select new
+                                {
+                                    partnum = qq.Key,
+                                    qty = qq.Sum(r => System.Convert.ToInt32(r["供件数量"].ToString()))
+                                }
+
+                     };
+            
+
+            DataTable gg = new DataTable();
+            gg.Columns.Add("图号", typeof(string));
+            gg.Columns.Add("零件号", typeof(string));
+            gg.Columns.Add("数量", typeof(string));
+
+            foreach (var bb in d1)
+            {
+                var dr = gg.Rows.Add();
+                dr["图号"] = bb.dwg;
+                string prt="";
+                string prtqty = "";
+                foreach (var cc in bb.ptls)
+                {
+                    prt = prt + cc.partnum.Replace(bb.dwg, "")+",";
+                    prtqty = prtqty + cc.qty.ToString() + ",";
+                
+                }
+                if (prt.Count()>0)
+                    {
+                    prt= prt.Remove(prt.Count() - 1);
+                     }
+                if (prtqty.Count() > 0)
+                {
+                    prtqty= prtqty.Remove(prtqty.Count() - 1);
+                }
+                dr["零件号"] = prt;
+                dr["数量"] = prtqty;
+
+            }
+
+     
+            OFFICE_Method.excelMethod.SaveDataTableToExcel(gg,iftext:true);
+
+
+
 
         }
     }

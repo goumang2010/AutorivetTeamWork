@@ -25,7 +25,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ProductName>AutorivetTeamWork</ProductName>
     <PublisherName>SACI</PublisherName>
-    <ApplicationRevision>9</ApplicationRevision>
+    <ApplicationRevision>12</ApplicationRevision>
     <ApplicationVersion>10.1.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -433,9 +433,9 @@
       <Project>{ceb6bed3-31cd-4315-9f2d-f5ebf1cdf89a}</Project>
       <Name>FileManagerNew</Name>
     </ProjectReference>
-    <ProjectReference Include="..\mysqlsolution\mysqlsolution\MySqlSolution.csproj">
+    <ProjectReference Include="..\GoumangToolKit\goumangToolKit\GoumangToolKit.csproj">
       <Project>{41f56599-8d65-48b1-ac56-99e8d146bc2d}</Project>
-      <Name>MySqlSolution</Name>
+      <Name>GoumangToolKit</Name>
     </ProjectReference>
     <ProjectReference Include="..\NC_TOOLS\NC_TOOL\NCTools.csproj">
       <Project>{f2078848-bf40-4084-9559-492a72d17948}</Project>
@@ -445,13 +445,13 @@
       <Project>{78d7e043-4963-44c0-9631-9e9549eafe91}</Project>
       <Name>OFFICE_Method</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SACISearching\SACISearch\SACISearch.csproj">
+      <Project>{7f06b16e-a6e2-4678-8d5a-d25eac54e362}</Project>
+      <Name>SACISearch</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TVA_tools\FASTTIP_CATIA_METHOD\CatiaFastipMethod.vbproj">
       <Project>{a761ef80-ff77-41ef-85e0-a8ffbac96ae2}</Project>
       <Name>CatiaFastipMethod</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WindowsFormsApplication1\WindowsFormsApplication1\SACISearch.csproj">
-      <Project>{7f06b16e-a6e2-4678-8d5a-d25eac54e362}</Project>
-      <Name>SACISearch</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

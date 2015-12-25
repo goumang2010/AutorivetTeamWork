@@ -289,10 +289,11 @@ namespace AUTORIVET_KAOHE
             if(listBox2.SelectedIndex!=-1)
             {
 
-       
-            //fileInfo allfiles = fileOP.WalkTree(Program.InfoPath.Remove(Program.InfoPath.Count()-1));
-            fileInfo allfiles = fileOP.WalkTree(FormMethod.get_storefolder(listBox2.SelectedItem.ToString()));
-            FormMethod.scanfiledoc(allfiles.pathfilter("", "old").pathfilter("", "backup").extfilter("doc").namefilter("AAO", "~$"), checkBox2.Checked);
+
+                //List<FileInfo> allfiles = fileOP.WalkTree(Program.InfoPath.Remove(Program.InfoPath.Count()-1));
+                List<FileInfo> allfiles = new List<FileInfo>();
+           allfiles.WalkTree(FormMethod.get_storefolder(listBox2.SelectedItem.ToString()));
+                FormMethod.scanfiledoc(allfiles.pathfilter("", "old").pathfilter("", "backup").extfilter("doc").namefilter("AAO", "~$").First().FullName,closeword: checkBox2.Checked);
            // scanfilepdf(allfiles.pathfilter("","old").extfilter("pdf").namefilter("V0"));
             rf_default();
             }
@@ -305,13 +306,13 @@ namespace AUTORIVET_KAOHE
 
 
 
-          private void scanfilepdf(fileInfo allfiles)
+          private void scanfilepdf(List<FileInfo> allfiles)
           {
-              int count = allfiles.count;
+              int count = allfiles.Count;
 
               for (int i = 0; i < count; i++)
               {
-                  string filename = allfiles.fileName[i];
+                  string filename = allfiles[i].Name;
                   string biaoshi = filename.Split('_').Last();
 
                   switch (biaoshi)
@@ -539,8 +540,8 @@ namespace AUTORIVET_KAOHE
                           MessageBox.Show(kk.Message);
                       }
                       
-                      fileInfo tempfile = new fileInfo();
-                      tempfile.add(filepath, filefullname, filename, fileExt);
+                      List<FileInfo> tempfile = new List<FileInfo>();
+                      tempfile.Add(new FileInfo(filefullname));
                       //扫描该文档
                      FormMethod.scanfiledoc(tempfile);
                   }
