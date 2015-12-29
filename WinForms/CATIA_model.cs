@@ -368,7 +368,7 @@ namespace AUTORIVET_KAOHE
                   //备份原有文件
                   //已制作方法
        
-                 localMethod.backupfile(filepath);
+                 BackupOperation.backupfile(filepath);
                  // File.Copy(filepath, backupfolder + backupname,true);
                   string sourcepath = ofd.FileName;
                   File.Copy(sourcepath, filepath, true);
@@ -838,7 +838,7 @@ namespace AUTORIVET_KAOHE
                 if (fix)
                 {
                     //做修复前需要备份文件
-                    localMethod.backupfile(pp);
+                    BackupOperation.backupfile(pp);
 
 
                     tvamodel.fix_all();
@@ -848,7 +848,7 @@ namespace AUTORIVET_KAOHE
                 {
 
                     //重制前备份文件
-                    localMethod.backupfile(pp);
+                    BackupOperation.backupfile(pp);
 
                     //同步数据库
                     tvamodel.updatedt();
@@ -1073,7 +1073,7 @@ namespace AUTORIVET_KAOHE
                if (File.Exists(newTVApath))
                {
                    //备份TVA文件
-                   localMethod.backupfile(currentpath);
+                   BackupOperation.backupfile(currentpath);
 
                    File.Copy(newTVApath, currentpath, true);
 
@@ -1248,7 +1248,7 @@ namespace AUTORIVET_KAOHE
                 
 
                    string filepath = pathlist.First().ToString();
-                    localMethod.backupfile(filepath);
+                    BackupOperation.backupfile(filepath);
                    pathlist = (from p in get_datatable().AsEnumerable()
                                where (p["产品名称"].ToString() == prodname) && (p["文件类型"].ToString() == "TVA")
                                select p["文件地址"]);

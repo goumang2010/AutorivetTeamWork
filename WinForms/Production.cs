@@ -282,7 +282,7 @@ namespace AUTORIVET_KAOHE
                                     string newfoldername = targetDri.First().RootDirectory.FullName;
 
                          
-                                        localMethod.backupfolder(newfoldername);
+                                        BackupOperation.backupfolder(newfoldername);
 
                                     localMethod.creatDir(newfoldername);
                                   

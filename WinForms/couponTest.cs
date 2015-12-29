@@ -559,7 +559,7 @@ namespace AUTORIVET_KAOHE
             {
                 string outputfolder = Program.InfoPath + productList1.listBox1.SelectedItem.ToString() + "\\NC\\COUPON\\";
                 string newfoldername = targetDri.First().RootDirectory.FullName;
-                localMethod.backupfolder(newfoldername);
+                BackupOperation.backupfolder(newfoldername);
                 List<FileInfo> files = new List<FileInfo>();
                 files.WalkTree(outputfolder, false);
                 files.copyto(newfoldername);

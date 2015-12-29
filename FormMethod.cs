@@ -16,7 +16,7 @@ using System.Reflection;
 
 namespace AUTORIVET_KAOHE
 {
-    class FormMethod
+  public  class FormMethod
     {
         public static Form GetForm(string formname)
         {
@@ -35,35 +35,7 @@ namespace AUTORIVET_KAOHE
          var  obj = (Form)(assembly.CreateInstance("AUTORIVET_KAOHE." + formname));
             obj.Show();
             return obj;
-            //Form f;
-            //switch(formname)
-            //{
-                  
 
-
-            //    case "Form3":
-            //f= new Form3 ();
-
-            //      f.Show();
-            //      return f;
-            //       // break;
-            //    case "paperWork":
-
-
-            // f= new paperWork();
-            //           f.Show();
-            //      return f;
-            //    case "Production":
-            //     f= new Production();
-            //            f.Show();
-            //      return f;
-
-
-
-            //}
-
-
-            //return null;
        
              
         }
@@ -113,24 +85,7 @@ namespace AUTORIVET_KAOHE
         //添加凭据
 
 
-           public static void cleanbackup()
-        {
-            var test = new List<FileInfo>();
-           
-            test.WalkTree(Program.InfoPath);
 
-            //List<FileInfo> dd = fileOP.WalkTree(Program.InfoPath);
-           string backupfolder=@"\\192.168.3.32\Autorivet\Prepare\BACKUP\BACKUP_ALL\";
-               localMethod.creatDir(backupfolder);
-
-            test.Where(x => x.Name.Contains("backup")).moveto(backupfolder);
-            //dd.namefilter("backup").moveto(Program.InfoPath,backupfolder);
-
-               MessageBox.Show("成功");
-               
-
-
-        }
         public static void creatCredential()
         {
                         string targetName = "192.168.3.32";
@@ -191,11 +146,20 @@ namespace AUTORIVET_KAOHE
             
         }
 
+        public static int CleanBackup()
+        {
 
+
+            return BackupOperation.CleanBackup(Program.InfoPath);
+
+
+
+
+        }
 
 
         //杀死word
-      public static string GetProcessUserName(int pID)
+        public static string GetProcessUserName(int pID)
         {
 
 
@@ -387,7 +351,7 @@ namespace AUTORIVET_KAOHE
         public static void open_process(object filepath)
         {
             //备份文件
-           localMethod.backupfile((string)filepath);
+           BackupOperation.backupfile((string)filepath);
             //使用Fastip 打开
 
      
@@ -400,7 +364,7 @@ namespace AUTORIVET_KAOHE
         public static void open_file_local(object filepath)
         {
             //备份文件
-            localMethod.backupfile((string)filepath);
+            BackupOperation.backupfile((string)filepath);
             System.Diagnostics.Process aa = new System.Diagnostics.Process();
             aa.StartInfo=new System.Diagnostics.ProcessStartInfo((string)filepath);
             aa.Start();
@@ -724,7 +688,7 @@ namespace AUTORIVET_KAOHE
 
   public static Document creatAOI(Dictionary<string, string> rncaao,bool overcover=false,bool closeword=true)
         {
-            localMethod.backupfile(rncaao["AOI保存地址"]);
+            BackupOperation.backupfile(rncaao["AOI保存地址"]);
             if (!rncaao.Keys.Contains("图纸名称"))
             {
                 
@@ -1123,7 +1087,7 @@ namespace AUTORIVET_KAOHE
   public static void creatPACR(Dictionary<string, string> rncaao, bool overcover = false,bool closeword=true)
   {
 
-            localMethod.backupfile(rncaao["PACR保存地址"]);
+            BackupOperation.backupfile(rncaao["PACR保存地址"]);
       if (!rncaao.Keys.Contains("图纸名称"))
       {
           rncaao.Add("图纸名称", AutorivetDB.queryno(rncaao["图号"], "图纸名称"));
@@ -1347,7 +1311,7 @@ namespace AUTORIVET_KAOHE
         public static void creatCOPYSH(Dictionary<string, string> rncaao, bool overcover = false, bool closeword = true)
         {
 
-            localMethod.backupfile(rncaao["复制单保存地址"]);
+            BackupOperation.backupfile(rncaao["复制单保存地址"]);
             if (!rncaao.Keys.Contains("图纸名称"))
             {
                 rncaao.Add("图纸名称", AutorivetDB.queryno(rncaao["图号"], "图纸名称"));
@@ -1415,7 +1379,7 @@ namespace AUTORIVET_KAOHE
         public static void creatVERI(Dictionary<string, string> rncaao, bool overcover = false, bool closeword = true)
         {
 
-            localMethod.backupfile(rncaao["鉴定表保存地址"]);
+            BackupOperation.backupfile(rncaao["鉴定表保存地址"]);
             if (!rncaao.Keys.Contains("图纸名称"))
             {
                 rncaao.Add("图纸名称", AutorivetDB.queryno(rncaao["图号"], "图纸名称"));

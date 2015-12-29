@@ -736,7 +736,7 @@ namespace AUTORIVET_KAOHE
                         strobj[1] = textBox3.Text;
                         strobj[2] = textBox4.Text;
 
-                        localMethod.backupfile(temprow["地址"].ToString());
+                        BackupOperation.backupfile(temprow["地址"].ToString());
                         //Thread t1 = new Thread(new ParameterizedThreadStart(replacethread));
                         //t1.Start(strobj);
 
@@ -827,7 +827,7 @@ namespace AUTORIVET_KAOHE
              
                 if (File.Exists(pp))
                 {
-                    localMethod.backupfile(pp);
+                    BackupOperation.backupfile(pp);
                     File.Delete(pp);
 
 

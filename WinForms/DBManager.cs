@@ -99,7 +99,7 @@ namespace AUTORIVET_KAOHE
 
         private void button1_Click(object sender, EventArgs e)
         {
-           FormMethod.cleanbackup();
+           FormMethod.CleanBackup();
         }
 
         private void tVADatabaseToolStripMenuItem_Click(object sender, EventArgs e)
