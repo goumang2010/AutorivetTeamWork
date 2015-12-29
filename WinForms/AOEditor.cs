@@ -4,7 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Microsoft.Office.Interop.Word;
 using System.IO;
-using mysqlsolution;
+using GoumangToolKit;
 using System.Management;
 using FileManagerNew;
 

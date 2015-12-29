@@ -25,8 +25,8 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ProductName>AutorivetTeamWork</ProductName>
     <PublisherName>SACI</PublisherName>
-    <ApplicationRevision>12</ApplicationRevision>
-    <ApplicationVersion>10.1.1.%2a</ApplicationVersion>
+    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationVersion>10.1.2.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -104,6 +104,9 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="IronPython, Version=2.7.5.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Dynamic">
+      <HintPath>..\dll\Microsoft.Dynamic.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -445,7 +448,7 @@
       <Project>{78d7e043-4963-44c0-9631-9e9549eafe91}</Project>
       <Name>OFFICE_Method</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SACISearching\SACISearch\SACISearch.csproj">
+    <ProjectReference Include="..\SACISearch\SACISearch\SACISearch.csproj">
       <Project>{7f06b16e-a6e2-4678-8d5a-d25eac54e362}</Project>
       <Name>SACISearch</Name>
     </ProjectReference>

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileManagerNew", "..\FileManagerNew\FileManagerNew\FileManagerNew.csproj", "{CEB6BED3-31CD-4315-9F2D-F5EBF1CDF89A}"
 EndProject
@@ -15,13 +15,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCTools", "..\NC_TOOLS\NC_T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NC_TOOLTests", "..\NC_TOOLS\NC_TOOLTests\NC_TOOLTests.csproj", "{18F23BD5-C690-4E97-B141-1629E9B2C7D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutorivetService", "AutorivetService\AutorivetService.csproj", "{21CD71C4-6CF7-4E5A-94BB-C81E3745C488}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutorivetTeamWork.Tests", "..\AutorivetTeamWork.Tests\AutorivetTeamWork.Tests.csproj", "{1AA67C43-D77F-42C7-9818-FCC49C96AD27}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoumangToolKit", "..\GoumangToolKit\goumangToolKit\GoumangToolKit.csproj", "{41F56599-8D65-48B1-AC56-99E8D146BC2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SACISearch", "..\SACISearching\SACISearch\SACISearch.csproj", "{7F06B16E-A6E2-4678-8D5A-D25EAC54E362}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SACISearch", "..\SACISearch\SACISearch\SACISearch.csproj", "{7F06B16E-A6E2-4678-8D5A-D25EAC54E362}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,14 +75,6 @@ Global
 		{18F23BD5-C690-4E97-B141-1629E9B2C7D6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{18F23BD5-C690-4E97-B141-1629E9B2C7D6}.Release|x86.ActiveCfg = Release|Any CPU
 		{18F23BD5-C690-4E97-B141-1629E9B2C7D6}.Release|x86.Build.0 = Release|Any CPU
-		{21CD71C4-6CF7-4E5A-94BB-C81E3745C488}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{21CD71C4-6CF7-4E5A-94BB-C81E3745C488}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{21CD71C4-6CF7-4E5A-94BB-C81E3745C488}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{21CD71C4-6CF7-4E5A-94BB-C81E3745C488}.Debug|x86.Build.0 = Debug|Any CPU
-		{21CD71C4-6CF7-4E5A-94BB-C81E3745C488}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{21CD71C4-6CF7-4E5A-94BB-C81E3745C488}.Release|Any CPU.Build.0 = Release|Any CPU
-		{21CD71C4-6CF7-4E5A-94BB-C81E3745C488}.Release|x86.ActiveCfg = Release|Any CPU
-		{21CD71C4-6CF7-4E5A-94BB-C81E3745C488}.Release|x86.Build.0 = Release|Any CPU
 		{1AA67C43-D77F-42C7-9818-FCC49C96AD27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1AA67C43-D77F-42C7-9818-FCC49C96AD27}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1AA67C43-D77F-42C7-9818-FCC49C96AD27}.Debug|x86.ActiveCfg = Debug|Any CPU

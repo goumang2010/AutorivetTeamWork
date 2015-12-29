@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using mysqlsolution;
+using GoumangToolKit;
 using System.IO;
 using OFFICE_Method;
 using FileManagerNew;

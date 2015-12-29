@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using System.Threading;
-using mysqlsolution;
+using GoumangToolKit;
 using OFFICE_Method;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
@@ -316,7 +316,7 @@ namespace AUTORIVET_KAOHE
                 JsonSerializer serializer = new JsonSerializer();
                 StringReader sr = new StringReader(temprow["历史"].ToString());
 
-                List<historyJsonModel> p1 =jsonMethod.iniFromStr(temprow["历史"].ToString());
+                List<historyJsonModel> p1 =jsonMethod.ReadFromStr(temprow["历史"].ToString());
                // dataGridView1.Rows[l].Cells["历史"].ToolTipText = p1.JsonToString();
 
 
@@ -994,7 +994,7 @@ namespace AUTORIVET_KAOHE
 
            
 
-                List < historyJsonModel > p1 = jsonMethod.iniFromStr(temprow["历史"].ToString());
+                List < historyJsonModel > p1 = jsonMethod.ReadFromStr(temprow["历史"].ToString());
                 p1.Add(new historyJsonModel
                 {
                     operation="创建文件",
@@ -1080,7 +1080,7 @@ namespace AUTORIVET_KAOHE
                     FormMethod.notifyServers("已替换TVA，源文件:" + newTVApath);
                         //写入TVA历史
 
-                        List<historyJsonModel> p1 = jsonMethod.iniFromStr(temprow["历史"].ToString());
+                        List<historyJsonModel> p1 = jsonMethod.ReadFromStr(temprow["历史"].ToString());
                         p1.Add(new historyJsonModel
                         {
                             operation = "架次替换",
@@ -2040,7 +2040,7 @@ namespace AUTORIVET_KAOHE
             int l = e.RowIndex;
             if (k == 6 && l >= 0)
             {
-                List<historyJsonModel> p1 = jsonMethod.iniFromStr(dataGridView1.Rows[l].Cells["历史"].Value.ToString());
+                List<historyJsonModel> p1 = jsonMethod.ReadFromStr(dataGridView1.Rows[l].Cells["历史"].Value.ToString());
                 dataGridView1.Rows[l].Cells["历史"].ToolTipText = p1.JsonToString();
 
 

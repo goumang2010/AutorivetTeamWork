@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
-using mysqlsolution;
+using GoumangToolKit;
 using OFFICE_Method;
 using CATIA_method;
 

@@ -14,7 +14,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using System.IO;
-using mysqlsolution;
+using GoumangToolKit;
 
 namespace AUTORIVET_KAOHE
 {

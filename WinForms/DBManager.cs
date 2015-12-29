@@ -1,4 +1,4 @@
-﻿using mysqlsolution;
+﻿using GoumangToolKit;
 using System;
 using System.Data;
 using System.Linq;
