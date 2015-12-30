@@ -2,7 +2,7 @@
 using System.Data;
 using System.Windows.Forms;
 using GoumangToolKit;
-using OFFICE_Method;
+using OfficeMethod;
 using CATIA_method;
 
 

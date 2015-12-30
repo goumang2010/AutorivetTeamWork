@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using FileManagerNew;
 using System.Threading.Tasks;
-using OFFICE_Method;
+using OfficeMethod;
 
 namespace AUTORIVET_KAOHE
 {

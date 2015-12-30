@@ -117,7 +117,7 @@ namespace AUTORIVET_KAOHE
         private void button2_Click(object sender, EventArgs e)
         {
             string sqlstr = "select * from "+listBox1.SelectedItem.ToString();
-            OFFICE_Method.excelMethod.SaveDataTableToExcel(DbHelperSQL.Query(sqlstr).Tables[0]);
+            OfficeMethod.excelMethod.SaveDataTableToExcel(DbHelperSQL.Query(sqlstr).Tables[0]);
         }
 
         private void fastenerTableToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -244,7 +244,7 @@ namespace AUTORIVET_KAOHE
             }
 
      
-            OFFICE_Method.excelMethod.SaveDataTableToExcel(gg,iftext:true);
+            OfficeMethod.excelMethod.SaveDataTableToExcel(gg,iftext:true);
 
 
 

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Threading;
 using GoumangToolKit;
-using OFFICE_Method;
+using OfficeMethod;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using MySql.Data.MySqlClient;

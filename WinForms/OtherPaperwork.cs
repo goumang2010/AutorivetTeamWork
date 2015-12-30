@@ -9,7 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 using Microsoft.Office.Interop.Word;
 using GoumangToolKit;
-using OFFICE_Method;
+using OfficeMethod;
 using System.IO;
 
 namespace AUTORIVET_KAOHE

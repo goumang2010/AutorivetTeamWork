@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using GoumangToolKit;
 using System.IO;
-using OFFICE_Method;
+using OfficeMethod;
 using FileManagerNew;
 using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
@@ -552,7 +552,7 @@ namespace AUTORIVET_KAOHE
                         tianchong.Add(prodname, AutorivetDB.getparatable(prodname));
                         //  tianchongname.Add(productnametrim);
 
-                        OFFICE_Method.excelMethod.SaveDataTableToExcelTran(tianchong, newpath);
+                        OfficeMethod.excelMethod.SaveDataTableToExcelTran(tianchong, newpath);
 
 
                         System.Diagnostics.Process.Start("explorer.exe", foldername);

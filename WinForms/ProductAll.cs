@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using GoumangToolKit;
-using OFFICE_Method;
+using OfficeMethod;
 
 namespace AUTORIVET_KAOHE
 {
