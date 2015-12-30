@@ -5,8 +5,6 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileManagerNew", "..\FileManagerNew\FileManagerNew\FileManagerNew.csproj", "{CEB6BED3-31CD-4315-9F2D-F5EBF1CDF89A}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "OFFICE_Method", "..\OFFICE_Method\OFFICE_Method\OFFICE_Method.vbproj", "{78D7E043-4963-44C0-9631-9E9549EAFE91}"
-EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CatiaFastipMethod", "..\TVA_tools\FASTTIP_CATIA_METHOD\CatiaFastipMethod.vbproj", "{A761EF80-FF77-41EF-85E0-A8FFBAC96AE2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutorivetTeamWork", "AutorivetTeamWork.csproj", "{3B0FF9B9-3030-4344-B214-50A2F1F6544A}"
@@ -20,6 +18,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoumangToolKit", "..\GoumangToolKit\goumangToolKit\GoumangToolKit.csproj", "{41F56599-8D65-48B1-AC56-99E8D146BC2D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SACISearch", "..\SACISearch\SACISearch\SACISearch.csproj", "{7F06B16E-A6E2-4678-8D5A-D25EAC54E362}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "OfficeMethod", "..\GoumangToolKit\OfficeMethod\OfficeMethod.vbproj", "{78D7E043-4963-44C0-9631-9E9549EAFE91}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,14 +35,6 @@ Global
 		{CEB6BED3-31CD-4315-9F2D-F5EBF1CDF89A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CEB6BED3-31CD-4315-9F2D-F5EBF1CDF89A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CEB6BED3-31CD-4315-9F2D-F5EBF1CDF89A}.Release|x86.ActiveCfg = Release|Any CPU
-		{78D7E043-4963-44C0-9631-9E9549EAFE91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{78D7E043-4963-44C0-9631-9E9549EAFE91}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{78D7E043-4963-44C0-9631-9E9549EAFE91}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{78D7E043-4963-44C0-9631-9E9549EAFE91}.Debug|x86.Build.0 = Debug|Any CPU
-		{78D7E043-4963-44C0-9631-9E9549EAFE91}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{78D7E043-4963-44C0-9631-9E9549EAFE91}.Release|Any CPU.Build.0 = Release|Any CPU
-		{78D7E043-4963-44C0-9631-9E9549EAFE91}.Release|x86.ActiveCfg = Release|Any CPU
-		{78D7E043-4963-44C0-9631-9E9549EAFE91}.Release|x86.Build.0 = Release|Any CPU
 		{A761EF80-FF77-41EF-85E0-A8FFBAC96AE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A761EF80-FF77-41EF-85E0-A8FFBAC96AE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A761EF80-FF77-41EF-85E0-A8FFBAC96AE2}.Debug|x86.ActiveCfg = Debug|Any CPU
@@ -99,6 +91,14 @@ Global
 		{7F06B16E-A6E2-4678-8D5A-D25EAC54E362}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7F06B16E-A6E2-4678-8D5A-D25EAC54E362}.Release|x86.ActiveCfg = Release|x86
 		{7F06B16E-A6E2-4678-8D5A-D25EAC54E362}.Release|x86.Build.0 = Release|x86
+		{78D7E043-4963-44C0-9631-9E9549EAFE91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78D7E043-4963-44C0-9631-9E9549EAFE91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78D7E043-4963-44C0-9631-9E9549EAFE91}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{78D7E043-4963-44C0-9631-9E9549EAFE91}.Debug|x86.Build.0 = Debug|Any CPU
+		{78D7E043-4963-44C0-9631-9E9549EAFE91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78D7E043-4963-44C0-9631-9E9549EAFE91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78D7E043-4963-44C0-9631-9E9549EAFE91}.Release|x86.ActiveCfg = Release|Any CPU
+		{78D7E043-4963-44C0-9631-9E9549EAFE91}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

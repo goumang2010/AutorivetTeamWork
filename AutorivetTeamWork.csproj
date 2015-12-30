@@ -25,7 +25,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ProductName>AutorivetTeamWork</ProductName>
     <PublisherName>SACI</PublisherName>
-    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationRevision>4</ApplicationRevision>
     <ApplicationVersion>10.1.2.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -440,13 +440,13 @@
       <Project>{41f56599-8d65-48b1-ac56-99e8d146bc2d}</Project>
       <Name>GoumangToolKit</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GoumangToolKit\OfficeMethod\OfficeMethod.vbproj">
+      <Project>{78d7e043-4963-44c0-9631-9e9549eafe91}</Project>
+      <Name>OfficeMethod</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NC_TOOLS\NC_TOOL\NCTools.csproj">
       <Project>{f2078848-bf40-4084-9559-492a72d17948}</Project>
       <Name>NCTools</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\OFFICE_Method\OFFICE_Method\OFFICE_Method.vbproj">
-      <Project>{78d7e043-4963-44c0-9631-9e9549eafe91}</Project>
-      <Name>OFFICE_Method</Name>
     </ProjectReference>
     <ProjectReference Include="..\SACISearch\SACISearch\SACISearch.csproj">
       <Project>{7f06b16e-a6e2-4678-8d5a-d25eac54e362}</Project>
