@@ -57,7 +57,7 @@ namespace AUTORIVET_KAOHE
           var stationcol = unidt.Columns.Add("站位号", typeof(string));
             MySqlConnection MySqlConn = new MySqlConnection(PubConstant.ConnectionString);
             MySqlConn.Open();
-            String sql = "select   产品名称, 产品架次, 开始日期, 结束日期, 移交日期, 当前状态, 备注, 流水号 as id,状态说明 from 产品流水表 ORDER BY 开始日期";
+            string sql = "select   产品名称, 产品架次, 开始日期, 结束日期, 移交日期, 当前状态, 备注, 流水号 as id,状态说明 from 产品流水表 ORDER BY 开始日期";
             daMySql = new MySqlDataAdapter(sql, MySqlConn);
             // DataSet OleDsyuangong = new DataSet();
 
@@ -910,5 +910,6 @@ namespace AUTORIVET_KAOHE
 
 
         }
+
     }
 }
